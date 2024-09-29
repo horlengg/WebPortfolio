@@ -3,8 +3,6 @@ export function useTextAnimation() {
   const init = () => {
     reset();
     const els = document.getElementsByClassName("text-typing");
-    console.log(Array.from(els).length);
-    
     const style = document.createElement("style");
     style.classList.add("my__style");
     let t = "";

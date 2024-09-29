@@ -29,10 +29,10 @@ const scrollAppToTop = ()=>{
   <AppHeader @link="scrollAppToTop"/>
   <!-- for scrolling to top -->
   <div class="topElement" ref="topBarRef"></div>
-  <div class="app-container" :key="route.name">
+  <div class="app-container">
     <router-view v-slot="{ Component ,route}">
       <transition name="app"> 
-        <component :is="Component" />
+        <component :is="Component" :key="route.name"/>
       </transition>
     </router-view>
   </div>
