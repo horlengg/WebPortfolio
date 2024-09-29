@@ -29,13 +29,13 @@ const scrollAppToTop = ()=>{
   <AppHeader @link="scrollAppToTop"/>
   <!-- for scrolling to top -->
   <div class="topElement" ref="topBarRef"></div>
-  <router-view v-slot="{ Component ,route}">
-    <transition name="app"> 
-      <div class="app-container" :key="route.name">
+  <div class="app-container" :key="route.name">
+    <router-view v-slot="{ Component ,route}">
+      <transition name="app"> 
         <component :is="Component" />
-      </div>
-    </transition>
-  </router-view>
+      </transition>
+    </router-view>
+  </div>
 
   <footer class="app-footer" v-if="route.meta.nextPage && route.meta.prevPage">
       <p  data-aos="fade-up" data-aos-duration="500">Did you want to continue to explore more? {{ route.meta.nextPage }}</p>
@@ -69,7 +69,7 @@ const scrollAppToTop = ()=>{
 }
 .app-enter-active, 
 .app-leave-active {
-  transition: opacity 0.5s ease; /* Shortened the duration for better UX */
+  transition: opacity 0.3s ease; /* Shortened the duration for better UX */
 }
 
 .app-enter-from, 
