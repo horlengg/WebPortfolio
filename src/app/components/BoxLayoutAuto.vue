@@ -18,7 +18,7 @@ withDefaults(defineProps<{
         </div>
         <div class="detail">
             <h4 data-aos="fade-up" data-aos-duration="500"> {{ title }} </h4>
-            <p class="mt-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+            <p class="mt-4 text-sm txt-style" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
                 <slot name="descript" />
             </p>
             <div class="mt-5 view-demo-project" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
@@ -48,7 +48,6 @@ withDefaults(defineProps<{
             width: 60%;
         }
         p {
-            font-size: 14px;
             line-height: 30px;
         }
         &.image-warpper {

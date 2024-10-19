@@ -18,7 +18,7 @@ withDefaults(defineProps<{
         <h5 class="s-card_title">
             {{ title }}
         </h5>
-        <p class="s-card_des">
+        <p class="s-card_des text-sm txt-style">
             {{ description }}
         </p>
     </div>
@@ -47,10 +47,10 @@ withDefaults(defineProps<{
     }
 
     .s-card_des {
-        font-size: 13px;
         margin-top: 10px;
         text-indent: 20px;
         word-break: keep-all;
+        line-height: 2;
     }
 }
 

@@ -21,28 +21,28 @@ onMounted(()=>{
           Welcome to my portfolio!
         </h4>
         <div class="mt-2" style="word-break: keep-all">
-          <p class="text-typing text-sm description" data-typing-delay="1000" data-typing-duration="500">
+          <p class="text-typing text-sm description txt-style" data-typing-delay="1000" data-typing-duration="500">
             I'm Ly Horleng, a Frontend Developer
           </p>
-          <p class="text-typing mt-1 text-sm description" data-typing-delay="1500" data-typing-duration="500">
+          <p class="text-typing mt-1 text-sm description txt-style" data-typing-delay="1500" data-typing-duration="500">
             with a passion for creating visually stunning
           </p>
-          <p class="text-typing mt-1 text-sm description" data-typing-delay="2000" data-typing-duration="500">
+          <p class="text-typing mt-1 text-sm description txt-style" data-typing-delay="2000" data-typing-duration="500">
             responsive, and user-centric websites.
           </p>
-          <p class="text-typing mt-1 text-sm description" data-typing-delay="2500" data-typing-duration="500">
+          <p class="text-typing mt-1 text-sm description txt-style" data-typing-delay="2500" data-typing-duration="500">
             From sleek interfaces to seamless user experiences,
           </p>
-          <p class="text-typing mt-1 text-sm description" data-typing-delay="3000" data-typing-duration="500">
+          <p class="text-typing mt-1 text-sm description txt-style" data-typing-delay="3000" data-typing-duration="500">
             I'm dedicated to turning ideas into digital realities.
           </p>
         </div>
   
         <div class="mt-5" style="gap: 10px;">
-          <p class="text-typing text-sm" data-typing-duration="500" data-typing-delay="3500">
+          <p class="text-typing text-sm txt-style" data-typing-duration="500" data-typing-delay="3500">
             If you have any concern, Please fell free to contact me!.
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="4000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
             Thank you for watching...!
           </p>
         </div>

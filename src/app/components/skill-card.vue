@@ -19,7 +19,7 @@ withDefaults(defineProps<{
         </div>
         <div class="skill-card_title mt-1">
             <h5>{{ skill.title }}</h5>
-            <p class="mt-2">
+            <p class="mt-2 text-sm txt-style" >
                 {{ skill.description }}
             </p>
         </div>
@@ -44,6 +44,9 @@ withDefaults(defineProps<{
         h5 {
             text-align: center;
             margin-top: 20px;
+        }
+        p {
+            line-height: 1.8;
         }
     }
 }

@@ -23,28 +23,28 @@ onMounted(() => {
         <div>
           <h2 class="text-typing" data-typing-duration="500">Customer</h2>
           <h3 class="text-typing mt-1" data-typing-duration="500" data-typing-delay="500">Service</h3>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="1000">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="1000">
             As a dedicated freelance developer,
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="1500">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="1500">
             I provide tailored, high-quality web
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="2000">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="2000">
             and software development solutions
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="2500">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="2500">
             designed to meet your unique needs.
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="3000">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="3000">
             Whether you're a startup, small business,
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="3500">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="3500">
             or enterprise, I specialize in crafting
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="4000">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="4000">
             scalable, efficient,
           </p>
-          <p class="text-typing text-sm mt-2" data-typing-duration="500" data-typing-delay="4500">
+          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="4500">
             and robust systems that help drive your success.
           </p>
         </div>

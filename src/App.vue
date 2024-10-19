@@ -38,7 +38,7 @@ const scrollAppToTop = ()=>{
   </div>
 
   <footer class="app-footer" v-if="route.meta.nextPage && route.meta.prevPage">
-      <p  data-aos="fade-up" data-aos-duration="500">Did you want to continue to explore more? {{ route.meta.nextPage }}</p>
+      <p class="text-sm txt-style" data-aos="fade-up" data-aos-duration="500">Did you want to continue to explore more?</p>
       <div class="btn-page-wrapper">
         <router-link :to="route.meta.prevPage || '#'" class="page-button prev-page-button" data-aos="fade-right" data-aos-duration="1000" @click="scrollAppToTop">
           <span>{{ getButtonFooterTitle(route.meta.prevPage as string) }}</span>

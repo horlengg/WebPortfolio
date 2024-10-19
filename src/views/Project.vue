@@ -18,31 +18,31 @@ onMounted(() => {
         <div data-aos="fade-down" data-aos-duration="1500">
           <h2 class="text-typing" data-typing-duration="1000">Welcome to</h2>
           <h3 class="text-typing mt-1" data-typing-duration="1000" data-typing-delay="1000">My Project Showcase!</h3>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="2000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2000">
             As a passionate and experienced web developer,
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="2500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2500">
             I believe in turning ideas into reality through powerful,
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="3000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3000">
             user-friendly, and scalable solutions.
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="3500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
             This page is dedicated to showcasing some of my best work,
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="4000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
             each project reflecting the unique challenges and solutions
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="4500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4500">
             that I’ve developed for clients across various industries.
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="5000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="5000">
             Whether it's a custom web app, API integration, or an
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="5500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="5500">
             eCommerce platform, my focus is on creating impactful
           </p>
-          <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="6000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="6000">
             digital experiences that drive results.
           </p>
         </div>

@@ -68,7 +68,7 @@ onMounted(()=>{
                     d="m15 3.086l7.414 7.414H2v-2h15.586l-4-4zM22 13.5v2H6.414l4 4L9 20.914L1.586 13.5z" />
             </svg>
             <div class="theme-mode-wrapper">
-                <span id="theme-mode-list" class="theme-mode-list" ref="themeModeSwitchListRef">
+                <span id="theme-mode-list" class="theme-mode-list text-sm txt-style" ref="themeModeSwitchListRef">
                     <span class="dark">Dark</span>
                     <span class="light">Light</span>
                 </span>
@@ -123,6 +123,9 @@ onMounted(()=>{
             }
             a {
                 text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 11px;
                 color: inherit;
                 width: 100%;
                 height: 100%;
@@ -175,11 +178,12 @@ onMounted(()=>{
                 display: flex;
                 flex-direction: column;
                 transition: transform 0.5s ease;
+                letter-spacing: 2px;
                 &.dark-mode {
-                    transform: translateY(-4px);
+                    transform: translateY(0px);
                 }
                 &:not(.dark-mode) {
-                    transform: translateY(-30px);
+                    transform: translateY(-22px);
                 }
                 span.dark,
                 span.light {

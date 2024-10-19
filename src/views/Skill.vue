@@ -212,22 +212,22 @@ onMounted(() => {
       <div class="left">
         <h2 class="text-typing" data-typing-duration="500">Welcome to</h2>
         <h3 class="text-typing mt-1" data-typing-duration="500" data-typing-delay="500">My Skills Showcase!</h3>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="1000">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1000">
           As a dedicated frontend developer,
         </p>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="1500">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1500">
           I specialize in transforming ideas into engaging,
         </p>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="2000">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2000">
           interactive, and efficient web applications.
         </p>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="2500">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2500">
           With expertise in HTML, CSS, JavaScript,
         </p>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="3000">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3000">
           and modern frameworks like React and Vue,
         </p>
-        <p class="text-typing text-sm mt-1" data-typing-duration="500" data-typing-delay="3500">
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
           I create clean, maintainable code that brings innovative designs to life.
         </p>
         <div class="mt-5 skill-demo-btn" data-aos="fade-down" data-aos-duration="1500">

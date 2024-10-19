@@ -57,7 +57,7 @@ onMounted(() => {
               2011 - Current
             </span>
           </div>
-          <p class="mt-4">
+          <p class="mt-4 text-sm txt-style">
             I am currently pursuing a degree in Computer Science at the Royal University of Phnom Penh,
             where I began my studies in 2022. This program is providing me with a solid foundation in various aspects of
             computer science, including programming,
@@ -102,7 +102,7 @@ onMounted(() => {
               June 2023 - Current
             </span>
           </div>
-          <p class="mt-4" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1000">
+          <p class="mt-4 text-sm txt-style" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1000">
             Since June 2023, I have been a dedicated Front End Developer at APD Bank,
             where I leverage my expertise to create seamless and engaging user interfaces for our financial products.
             My role involves collaborating closely with cross-functional teams, including back-end developers,
