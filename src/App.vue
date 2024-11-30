@@ -10,6 +10,9 @@ const topBarRef = ref<HTMLElement>()
 
 onMounted(()=>{
   bg.init();
+  document.addEventListener("contextmenu",(e)=>{
+    e.preventDefault();
+  })
 })
 
 const getButtonFooterTitle = (path:string)=>{

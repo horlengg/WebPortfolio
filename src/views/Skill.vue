@@ -228,7 +228,10 @@ onMounted(() => {
           and modern frameworks like React and Vue,
         </p>
         <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
-          I create clean, maintainable code that brings innovative designs to life.
+          I create clean, maintainable code that brings 
+        </p>
+        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
+          innovative designs to life. 
         </p>
         <div class="mt-5 skill-demo-btn" data-aos="fade-down" data-aos-duration="1500">
           <a href="#skillDemo">

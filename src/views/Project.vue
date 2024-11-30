@@ -22,28 +22,31 @@ onMounted(() => {
             As a passionate and experienced web developer,
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2500">
-            I believe in turning ideas into reality through powerful,
+            I believe in turning ideas into reality through,
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3000">
-            user-friendly, and scalable solutions.
+            powerful user-friendly, and scalable solutions.
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
-            This page is dedicated to showcasing some of my best work,
+            This page is dedicated to showcasing some of my,
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
-            each project reflecting the unique challenges and solutions
+            best work each project reflecting the unique
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4500">
-            that I’ve developed for clients across various industries.
+            challenges and solutions that I’ve developed for
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="5000">
-            Whether it's a custom web app, API integration, or an
+            clients across various industries. Whether it's a
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="5500">
-            eCommerce platform, my focus is on creating impactful
+            custom web app, API integration, or an eCommerce
           </p>
           <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="6000">
-            digital experiences that drive results.
+            platform, my focus is on creating impactful digital
+          </p>
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="6500">
+            experiences that drive results.
           </p>
         </div>
         <div class="mt-4 btn-more-wrapper">
