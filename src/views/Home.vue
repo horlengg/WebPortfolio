@@ -74,7 +74,7 @@ onMounted(()=>{
               <span class="title">Facebook</span>
             </button>
           </a>
-          <a href="https://t.me/ly_houleng" target="_blank" style="text-decoration: none" data-aos="fade-down"
+          <a href="https://t.me/lengzhunzhe" target="_blank" style="text-decoration: none" data-aos="fade-down"
             data-aos-duration="500" data-aos-delay="1000">
             <button class="social-media_btn telegram">
               <span class="icon">
