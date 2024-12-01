@@ -18,10 +18,10 @@ withDefaults(defineProps<{
         </div>
         <div class="detail">
             <h4 data-aos="fade-up" data-aos-duration="500"> {{ title }} </h4>
-            <p class="mt-4 text-sm txt-style" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
+            <p class="mt-4 text-sm txt-style" data-aos="fade-up" data-aos-duration="500">
                 <slot name="descript" />
             </p>
-            <div class="mt-5 view-demo-project" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="1000">
+            <div class="mt-5 view-demo-project" data-aos="fade-up" data-aos-duration="500">
                 <a :href="demoLink" :target="linkCurrentPage ?'':'_blank'" class="page-button">
                     <span>{{linkButtonTitle || "Demo"}}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15">

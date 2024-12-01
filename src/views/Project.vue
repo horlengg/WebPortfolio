@@ -69,6 +69,26 @@ onMounted(() => {
         Explore the Innovation Behind Every Project
       </h3>
       <div class="mt-5">
+        <!-- Telegram Cloning -->
+        <BoxLayoutAuto title="Telegram UI Clone Project (Incomplete)" demo-link="https://web-telegram-clone.vercel.app/k/@website_developer">
+          <template #image>
+            <img src="/src/app/assets/images/chat-clone.svg" alt="" >
+          </template>
+          <template #descript>
+            This project focuses on recreating the user interface of Telegram. 
+            It aims to replicate the visual and interactive elements of the app, 
+            including chat layouts, menus, and other design components. Currently, 
+            the project is in development and does not include backend functionality or features like real-time messaging, 
+            user authentication, or server integration.
+            The primary goal is to study and implement clean, responsive UI/UX design practices inspired by Telegram's sleek interface.
+          </template>
+        </BoxLayoutAuto>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <!-- chat app -->
         <BoxLayoutAuto title="Chat Web Application" demo-link="https://kh-chat.vercel.app/">
           <template #image>
