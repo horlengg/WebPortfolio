@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useTextAnimation } from '../utils/usetextanimation';
 
 const text = useTextAnimation()
+
 
 
 onMounted(()=>{

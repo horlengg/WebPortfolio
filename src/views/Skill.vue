@@ -21,6 +21,7 @@ const skillList = [
   {
     title: "HTML5",
     image: Html,
+    color : "#E34F26",
     description: `
             With strong HTML skills, I have the ability to build well-structured, clean,
             and responsive web pages.

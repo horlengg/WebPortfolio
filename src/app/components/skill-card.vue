@@ -18,8 +18,8 @@ withDefaults(defineProps<{
             <img :src="skill.image" alt="card image">
         </div>
         <div class="skill-card_title mt-1">
-            <h5>{{ skill.title }}</h5>
-            <p class="mt-2 text-sm txt-style" >
+            <h5 style="color: #E34F26;">{{ skill.title }}</h5>
+            <p class="mt-2 text-sm txt-style">
                 {{ skill.description }}
             </p>
         </div>

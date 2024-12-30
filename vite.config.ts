@@ -7,9 +7,11 @@ export default defineConfig({
   plugins: [vue()],
   resolve : {
     alias : {
-      "@": resolve(__dirname, "./src")
+      "@": resolve(__dirname, "./src"),
+      "@icon": resolve(__dirname, "./"),
     }
   },
+  root : "./",
   server : {
     host : '0.0.0.0',
     port : 3000

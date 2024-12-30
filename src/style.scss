@@ -7,11 +7,15 @@ html {
 body {
   &:not(.dark) {
     --layout-color: #fff;
-    --text-color: rgb(6, 33, 77, 80%);
+    --text-color: #06214d;
+    --icon-color : invert(60%) sepia(84%) saturate(4606%) hue-rotate(163deg) brightness(96%) contrast(103%);
+    --sharp-color : #FFF;
   }
   &.dark {
     --layout-color: rgb(60, 60, 60);
     --text-color: #ffffff;
+    --icon-color : brightness(0) saturate(100%) invert(95%) sepia(19%) saturate(268%) hue-rotate(50deg) brightness(103%) contrast(102%);
+    --sharp-color : #2B2B2B;
   }
   font-family: "Inter";
   font-weight: normal;
