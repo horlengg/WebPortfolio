@@ -23,6 +23,7 @@ body {
   background-color: var(--layout-color);
   transition: background-color 0.5s ease;
   font-size: 14px;
+  will-change: scroll-position;
   &::-webkit-scrollbar {
     display: none;
   }

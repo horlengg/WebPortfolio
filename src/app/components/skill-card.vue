@@ -1,24 +1,24 @@
 <script setup lang="ts">
+import { Skill } from '@/types/index.type';
 
-withDefaults(defineProps<{
-    skill : {
-        image: string,
-        title: string,
-        description: string
-    }
-}>(), {
 
-})
+defineProps<{
+    skill : Skill
+}>()
 
+
+const getLogoUrl = (logoName: string): string => {
+  return `/src/app/assets/images/${logoName}.svg`;
+};
 </script>
 
 <template>
     <div class="skill-card" data-aos="fade-up" data-aos-duration="500">
         <div class="skill-card_image">
-            <img :src="skill.image" alt="card image">
+            <img :src="getLogoUrl(skill.logoName)" alt="card image">
         </div>
         <div class="skill-card_title mt-1">
-            <h5 style="color: #E34F26;">{{ skill.title }}</h5>
+            <h5>{{ skill.title }}</h5>
             <p class="mt-2 text-sm txt-style">
                 {{ skill.description }}
             </p>
