@@ -8,7 +8,7 @@ body {
   &:not(.dark) {
     --layout-color: #fff;
     --text-color: #06214d;
-    --icon-color : invert(60%) sepia(84%) saturate(4606%) hue-rotate(163deg) brightness(96%) contrast(103%);
+    --icon-color : brightness(0) saturate(100%) invert(14%) sepia(30%) saturate(2299%) hue-rotate(187deg) brightness(93%) contrast(106%);
     --sharp-color : #FFF;
   }
   &.dark {

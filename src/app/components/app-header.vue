@@ -18,7 +18,7 @@ const menuList = [
 const themeModeSwitchListRef = ref<HTMLElement>()
 const appMenubarRef = ref<HTMLElement>()
 let lastScrollTop = 0;
-let timeoutId: ReturnType<typeof setTimeout>;
+const isShowMenuApp = ref(false)
 const emit = defineEmits<{
     (e: "link"): () => void
 }>()
@@ -26,17 +26,15 @@ const menuClick = () => {
     emit("link");
 }
 const handleScrollApp = () => {
-    if (timeoutId) clearTimeout(timeoutId)
-    timeoutId = setTimeout(() => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        const isScrollDown = scrollTop > lastScrollTop
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        if (!isScrollDown) {
-            appMenubarRef.value?.classList.add("active")
-        } else {
-            appMenubarRef.value?.classList.remove("active")
-        }
-    }, 300)
+    if(innerWidth > 768) return
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isScrollDown = scrollTop > lastScrollTop
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    if (!isScrollDown) {
+        isShowMenuApp.value = true
+    } else {
+        isShowMenuApp.value = false
+    }
 }
 
 onMounted(() => {
@@ -50,7 +48,7 @@ onMounted(() => {
 
 <template>
     <header class="app-header">
-        <nav id="app-menu" class="app-menu" ref="appMenubarRef">
+        <nav id="app-menu" class="app-menu" :class="{'active':isShowMenuApp}" ref="appMenubarRef">
             <ul>
                 <li class="app-menu_item" v-for="menu of menuList" :key="menu.label" @click="menuClick">
                     <router-link :to="menu.link">
