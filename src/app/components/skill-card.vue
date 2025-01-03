@@ -5,11 +5,10 @@ import { Skill } from '@/types/index.type';
 defineProps<{
     skill : Skill
 }>()
-
-
 const getLogoUrl = (logoName: string): string => {
-  return `/src/app/assets/images/${logoName}.svg`;
+  return new URL(`../assets/images/${logoName}.svg`, import.meta.url).href;
 };
+
 </script>
 
 <template>
