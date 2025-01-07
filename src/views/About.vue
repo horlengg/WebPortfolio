@@ -19,11 +19,7 @@ onMounted(() => {
       <div class="mt-5">
         <BoxLayoutAuto title="Ly Horleng" demo-link="#education" linkCurrentPage linkButtonTitle="More">
           <template #image>
-             <div>
-               <div class="profile-image-wrapper" data-aos="fade-up" data-aos-duration="1000">
-                 <div class="profile-image"></div>
-               </div>
-             </div>
+              <img src="/src/app/assets/images/about-me.svg" alt="icon">
           </template>
           <template #descript>
             Hi, I’m Ly Horleng, a passionate and dedicated Web Developer with a strong background in creating dynamic,

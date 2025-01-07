@@ -62,7 +62,7 @@ onMounted(() => {
         </div>
       </div>
       <div class="right" data-aos="fade-up" data-aos-duration="1500">
-        <img src="../app/assets/images/programmer.svg" alt="">
+        <img class="programmer-image" src="../app/assets/images/programmer.svg" alt="programmer">
       </div>
   
     </section>
@@ -76,4 +76,14 @@ onMounted(() => {
   
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.programmer-image {
+  width: 60% !important;
+}
+
+@media only screen and (max-width:768px){
+  .programmer-image {
+    width: 90% !important;
+  }
+}
+</style>

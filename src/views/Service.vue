@@ -58,7 +58,7 @@ onMounted(() => {
       </div>
       <div class="right-layout">
         <div data-aos="fade-up" data-aos-duration="1500">
-          <img src="/src/app/assets/images/dev-cs.svg" alt="dev">
+          <img src="/src/app/assets/images/service.svg" alt="dev">
         </div>
       </div>
     </section>

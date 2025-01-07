@@ -69,6 +69,34 @@ onMounted(() => {
         Explore the Innovation Behind Every Project
       </h3>
       <div class="mt-5">
+        
+        <!-- Piphubkun TV -->
+        <BoxLayoutAuto title="Piphubkun TV" demo-link="https://piphubkun-tv.vercel.app/">
+          <template #image>
+            <img src="/src/app/assets/images/watch-tv-icon.svg" alt="">
+          </template>
+          <template #descript>
+            Piphubkun TV is a dedicated platform for fans of Donghua, specifically focusing on 3D Chinese animation. 
+            The website provides an immersive and engaging experience, offering a curated collection of Donghua series and movies. 
+            With a sleek, modern design, users can easily explore popular titles, 
+            discover hidden gems, and dive into rich content details, including synopses, character profiles, 
+            and behind-the-scenes information. The platform features personalized recommendations powered by smart algorithms, 
+            helping fans find their next favorite show or movie. 
+            Robust search and filtering options make it simple to browse by genre, theme, or studio, 
+            while interactive community features like reviews, ratings, and comments foster a vibrant space for Donghua enthusiasts. 
+            Built with cutting-edge technologies, 
+            Piphubkun TV is fully responsive, 
+            ensuring a seamless experience across devices and showcasing my passion for web development and love for Donghua. 
+            This project is a testament to my skills in creating engaging, scalable, and user-focused digital platforms.
+          </template>
+        </BoxLayoutAuto>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
         <!-- Telegram Cloning -->
         <BoxLayoutAuto title="Telegram UI Clone Project (Incomplete)" demo-link="https://web-telegram-clone.vercel.app/k/@website_developer">
           <template #image>
@@ -89,6 +117,7 @@ onMounted(() => {
         <br>
         <br>
         <br>
+        
         <!-- chat app -->
         <BoxLayoutAuto title="Chat Web Application" demo-link="https://kh-chat.vercel.app/">
           <template #image>
@@ -100,25 +129,6 @@ onMounted(() => {
               interface where users can send and receive messages instantly without any delay. The app supports multiple
               conversations, group chats, and file sharing, making it perfect for personal, team, or business
               communication.
-          </template>
-        </BoxLayoutAuto>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <!-- TVKH -->
-        <BoxLayoutAuto title="TVKH" demo-link="https://tvkh.vercel.app/">
-          <template #image>
-            <img src="/src/app/assets/images/movie.svg" alt="">
-          </template>
-          <template #descript>
-              Discover a world of movies at your fingertips! Our platform brings you an extensive collection of films,
-              from the latest blockbuster hits to timeless classics. Whether you’re looking for reviews, trailers, or
-              recommendations, we’ve got you covered. Explore by genre, release date, or personal preferences, and build
-              your watchlist with ease. With real-time updates, ratings, and streaming availability, TVKH makes it easier
-              than ever to find your next favorite movie.
           </template>
         </BoxLayoutAuto>
       </div>

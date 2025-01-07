@@ -61,6 +61,12 @@ withDefaults(defineProps<{
             letter-spacing: 2px;
         }
     }
+    .detail {
+        h4 {
+            color: orange;
+            font-weight: 600;
+        }
+    }
 }
 @media screen and (max-width: 768px) {
     .box-layout-auto {
