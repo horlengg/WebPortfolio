@@ -13,6 +13,9 @@ onMounted(()=>{
   document.addEventListener("contextmenu",(e)=>{
     e.preventDefault();
   })
+  window.addEventListener("keydown",(e:KeyboardEvent)=>{
+    e.preventDefault();
+  })
 })
 
 const getButtonFooterTitle = (path:string)=>{
