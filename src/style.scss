@@ -44,15 +44,14 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right,#29BB19,#0D1E2A,#0D1E2A,#0D1E2A,#29BB19);
+    background-color: #29BB19;
     z-index: -1;
-    animation: __cycle_load 3s linear infinite;
   }
   .profile-image {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-image: url("./app/assets/images/ly_houleng.png");
+    background-image: url("./app/assets/images/leng-dev.jpg");
     background-position: center top;
     background-size: cover;
   }
