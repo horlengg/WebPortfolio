@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useTextAnimation } from '../utils/usetextanimation';
 
 const text = useTextAnimation()
+const keyRandom = ref<string>("")
 
 const handleDownloadCV = ()=>{
   alert("Sorry, File is not available now.")
 }
 
-
 onMounted(()=>{
   text.init()
+  setInterval(()=>{
+    keyRandom.value = Math.random().toString()
+  },10000)
 })
 
 </script>
@@ -19,7 +22,7 @@ onMounted(()=>{
 
   <div>
     <section id="home">
-      <div class="home_left-layout">
+      <div class="home_left-layout"  :key="keyRandom">
         <h2 class="text-typing" data-typing-duration="500">Hello there!.</h2>
         <h4 class="text-typing mt-1" data-typing-delay="500" data-typing-duration="500">
           Welcome to my portfolio!
