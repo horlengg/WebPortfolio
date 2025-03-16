@@ -90,7 +90,7 @@ onMounted(() => {
     align-items: center;
     height: 60px;
     z-index: 1000;
-    background-color: var(--layout-color);
+    background-color: transparent;
     transition: background-color .5s ease;
 
     .app-menu {
@@ -213,8 +213,6 @@ onMounted(() => {
 
 @media screen and (max-width: 768px) {
     .app-header {
-        border-bottom: 1px solid rgb(191, 210, 210);
-
         .app-menu {
             padding-top: 0px;
             background-color: var(--layout-color);

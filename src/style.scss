@@ -10,12 +10,14 @@ body {
     --text-color: #06214d;
     --icon-color : brightness(0) saturate(100%) invert(14%) sepia(30%) saturate(2299%) hue-rotate(187deg) brightness(93%) contrast(106%);
     --sharp-color : #FFF;
+    --background-border-color : rgb(229, 229, 229);
   }
   &.dark {
     --layout-color: rgb(60, 60, 60);
     --text-color: #ffffff;
     --icon-color : brightness(0) saturate(100%) invert(95%) sepia(19%) saturate(268%) hue-rotate(50deg) brightness(103%) contrast(102%);
     --sharp-color : #2B2B2B;
+    --background-border-color : rgb(75, 75, 75);
   }
   font-family: "Inter";
   font-weight: normal;

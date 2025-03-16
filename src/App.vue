@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import AppHeader from "@/app/components/app-header.vue"
-import { useBackground } from "./utils/usebackground";
+import { useBorderBackground } from "./utils/useborderbackground";
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 
-const bg = useBackground()
+const background = useBorderBackground()
 const route = useRoute()
 const topBarRef = ref<HTMLElement>()
 
 onMounted(()=>{
-  bg.init();
+  background.init({row : 50,column:50});
   document.addEventListener("contextmenu",(e)=>{
     e.preventDefault();
   })
@@ -32,8 +32,9 @@ const scrollAppToTop = ()=>{
 </script>
 
 <template>
+  <!-- <Demo /> -->
   <AppHeader @link="scrollAppToTop"/>
-  <!-- for scrolling to top -->
+
   <div class="topElement" ref="topBarRef"></div>
   <div class="app-container">
     <router-view v-slot="{ Component ,route}">
