@@ -19,7 +19,11 @@ onMounted(() => {
       <div class="mt-5">
         <BoxLayoutAuto title="Ly Horleng" demo-link="#education" linkCurrentPage linkButtonTitle="More">
           <template #image>
-              <img src="/src/app/assets/images/about-me.svg" alt="icon">
+            <div>
+              <div class="profile-image-wrapper" style="margin: auto;">
+                <div class="profile-image"></div>
+              </div>
+            </div>
           </template>
           <template #descript>
             Hi, I’m Ly Horleng, a passionate and dedicated Web Developer with a strong background in creating dynamic,
