@@ -42,7 +42,7 @@ onMounted(() => {
         <div class="skill-demo-list" v-for="skills of skillListMapped" >
         <div v-for="skill of skills" class="skill_card_demo">
           <div class="skill_logo">
-            <img :src="`/src/app/assets/images/${skill.logoName}.svg`" />
+            <img :src="`/images/${skill.logoName}.svg`" />
           </div>
           <div class="skill_detail">
             <p class="skill_title" :style="{color : skill.color}"> {{ skill.title }}</p>

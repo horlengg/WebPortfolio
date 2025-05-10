@@ -11,7 +11,7 @@ defineProps<{
         <div class="skill-track">
             <div class="skill-card"
                 v-for="(item, index) in skillList.concat(skillList)" :key="index">
-                <img :src="`/src/app/assets/images/${item.logoName}.svg`"/>
+                <img :src="`/images//${item.logoName}.svg`"/>
             </div>
         </div>
     </div>

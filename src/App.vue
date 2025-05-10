@@ -9,6 +9,12 @@ const topBarRef = ref<HTMLElement>()
 
 onMounted(()=>{
   background.init({row : 50,column:50});
+  document.addEventListener("contextmenu",(e)=>{
+    e.preventDefault();
+  })
+  window.addEventListener("keydown",(e:KeyboardEvent)=>{
+    e.preventDefault();
+  })
 })
 const scrollAppToTop = ()=>{
   if (topBarRef.value) {
