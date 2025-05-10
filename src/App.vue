@@ -2,28 +2,14 @@
 import AppHeader from "@/app/components/app-header.vue"
 import { useBorderBackground } from "./utils/useborderbackground";
 import { onMounted, ref } from "vue";
-import { useRoute } from "vue-router";
 import V2Layout from "./app/v2-layout.vue";
 
 const background = useBorderBackground()
-const route = useRoute()
 const topBarRef = ref<HTMLElement>()
 
 onMounted(()=>{
   background.init({row : 50,column:50});
-  // document.addEventListener("contextmenu",(e)=>{
-  //   e.preventDefault();
-  // })
-  // window.addEventListener("keydown",(e:KeyboardEvent)=>{
-  //   e.preventDefault();
-  // })
 })
-
-// const getButtonFooterTitle = (path:string)=>{
-//   if(path === "/") return "Home"
-//   let p = path.slice(1)
-//   return p[0].toUpperCase() + p.slice(1)
-// }
 const scrollAppToTop = ()=>{
   if (topBarRef.value) {
     topBarRef.value.scrollIntoView({behavior : "instant"})
@@ -35,31 +21,6 @@ const scrollAppToTop = ()=>{
 <template>
   <AppHeader @link="scrollAppToTop"/>
   <V2Layout />
-  <!-- <Demo />
-  <AppHeader @link="scrollAppToTop"/>
-
-  <div class="topElement" ref="topBarRef"></div>
-  <div class="app-container">
-    <router-view v-slot="{ Component ,route}">
-      <transition name="app"> 
-        <component :is="Component" :key="route.name"/>
-      </transition>
-    </router-view>
-  </div>
-
-  <footer class="app-footer" v-if="route.meta.nextPage && route.meta.prevPage">
-      <p class="text-sm txt-style" data-aos="fade-up" data-aos-duration="500">Did you want to continue to explore more?</p>
-      <div class="btn-page-wrapper">
-        <router-link :to="route.meta.prevPage || '#'" class="page-button prev-page-button" data-aos="fade-right" data-aos-duration="1000" @click="scrollAppToTop">
-          <span>{{ getButtonFooterTitle(route.meta.prevPage as string) }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414"/></svg>
-        </router-link>
-        <router-link :to="route.meta.nextPage" class="page-button next-page-button" data-aos="fade-left" data-aos-duration="1000" @click="scrollAppToTop">
-          <span>{{ getButtonFooterTitle(route.meta.nextPage as string) }}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 15 15"><path fill="currentColor" d="M8.293 2.293a1 1 0 0 1 1.414 0l4.5 4.5a1 1 0 0 1 0 1.414l-4.5 4.5a1 1 0 0 1-1.414-1.414L11 8.5H1.5a1 1 0 0 1 0-2H11L8.293 3.707a1 1 0 0 1 0-1.414"/></svg>
-        </router-link>
-      </div>
-    </footer> -->
   
 </template>
 
