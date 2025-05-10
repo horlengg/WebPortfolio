@@ -1,46 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useTheme } from '../../utils/usetheme';
-import Home from '/icons/home.svg';
-import Service from '/icons/service.svg';
-import About from '/icons/about.svg';
-import Skill from '/icons/skill.svg';
-import Project from '/icons/project.svg';
-
-const menuList = [
-    { link: "/", label: "Home", icon: Home },
-    { link: "/service", label: "Service", icon: Service },
-    { link: "/project", label: "Project", icon: Project },
-    { link: "/skill", label: "Skill", icon: Skill },
-    { link: "/about", label: "About", icon: About },
-]
 
 const themeModeSwitchListRef = ref<HTMLElement>()
-const appMenubarRef = ref<HTMLElement>()
-let lastScrollTop = 0;
-const isShowMenuApp = ref(false)
-const emit = defineEmits<{
-    (e: "link"): () => void
-}>()
-const menuClick = () => {
-    emit("link");
-}
-const handleScrollApp = () => {
-    if(innerWidth > 768) return
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const isScrollDown = scrollTop > lastScrollTop
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    if (!isScrollDown) {
-        isShowMenuApp.value = true
-    } else {
-        isShowMenuApp.value = false
-    }
-}
 
 onMounted(() => {
     const theme = useTheme(themeModeSwitchListRef.value!)
     theme.init()
-    window.addEventListener("scroll", handleScrollApp)
 })
 
 
