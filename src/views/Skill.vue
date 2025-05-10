@@ -1,19 +1,24 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { useTextAnimation } from '../utils/usetextanimation';
-import SkillCard from '../app/components/skill-card.vue';
+import { useTextAnimation } from '../utils/usetextanimation'; 
 import { Skill } from '@/types/index.type';
+import SkillDemoAnimate from '@/app/components/skill-demo-animate.vue';
 
 
 
 const text = useTextAnimation()
-const skillList = ref<Skill[]>([])
+const skillListMapped = ref<Array<Skill[]>>([])
+const responseSkillList = ref<Skill[]>([])
 
 const fetchSkills = async()=>{
   const res = await fetch("/db/skill.json")
   if(res.ok){
     const data = await res.json()
-    skillList.value = data
+    responseSkillList.value = data;
+    const groupSize = 5;
+    for (let i = 0; i < data.length; i += groupSize) {
+      skillListMapped.value.push(data.slice(i, i + groupSize));
+    }
   }
 }
 
@@ -27,49 +32,28 @@ onMounted(() => {
 
 <template>
   
-  <div>
-    <section id="skill">
-      <div class="left">
-        <h2 class="text-typing" data-typing-duration="500">Welcome to</h2>
-        <h3 class="text-typing mt-1" data-typing-duration="500" data-typing-delay="500">My Skills Showcase!</h3>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1000">
-          As a dedicated frontend developer,
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1500">
-          I specialize in transforming ideas into engaging,
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2000">
-          interactive, and efficient web applications.
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2500">
-          With expertise in HTML, CSS, JavaScript,
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3000">
-          and modern frameworks like React and Vue,
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
-          I create clean, maintainable code that brings 
-        </p>
-        <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
-          innovative designs to life. 
-        </p>
-        <div class="mt-5 skill-demo-btn" data-aos="fade-down" data-aos-duration="1500">
-          <a href="#skillDemo">
-            <button class="simple-button learn-more">
-              Learn More
-            </button>
-          </a>
+  <div class="layout_responsive">
+    <section id="skill_animate">
+      <SkillDemoAnimate :skill-list="responseSkillList"/>
+    </section>
+    <section id="skill_demo">
+      <!-- <h2 class="title" data-aos="zoom-in" data-aos-duration="500">Skills</h2> -->
+      <div class="skill_demo_card_wrapper mt-10">
+        <div class="skill-demo-list" v-for="skills of skillListMapped" >
+        <div v-for="skill of skills" class="skill_card_demo">
+          <div class="skill_logo">
+            <img :src="`/src/app/assets/images/${skill.logoName}.svg`" />
+          </div>
+          <div class="skill_detail">
+            <p class="skill_title" :style="{color : skill.color}"> {{ skill.title }}</p>
+            <div class="percentag_rang">
+            <div class="percentag_rang_active" :style="{backgroundColor : skill.color,width : skill.percentag + '%'}">
+              {{ skill.percentag }}%
+            </div>
+          </div>
+          </div>
         </div>
       </div>
-      <div class="right" data-aos="fade-up" data-aos-duration="1500">
-        <img class="programmer-image" src="../app/assets/images/programmer.svg" alt="programmer">
-      </div>
-  
-    </section>
-    <section id="skillDemo">
-      <h2 class="title" data-aos="zoom-in" data-aos-duration="500">Skills</h2>
-      <div class="skill-demo-list mt-10">
-        <SkillCard v-for="skill of skillList" :key="skill.title" :skill="skill"/>
       </div>
     </section>
   </div>
@@ -77,13 +61,81 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
+#skill_animate {
+  margin-top: 150px;
+}
+#skill_demo {
+  padding-bottom: 50px;
+  .skill_demo_card_wrapper {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 40px;
+    width: 100%;
+  }
+  .skill-demo-list {
+    transition: background-color 0.5s ease;
+    background-color: var(--skill-card-bg);
+    color: rgb(63, 185, 51);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    .skill_card_demo {
+      margin: 10px 0;
+      display: flex;
+      align-items:  flex-end;
+      gap: 15px;
+      .skill_title {
+        font-weight: 600;
+      }
+      .skill_detail {
+        width: 100%;
+      }
+      .skill_logo {
+        width: 35px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .percentag_rang {
+          width: 100%;
+          background-color: rgb(226, 225, 225);
+          height: 12px;
+          border-radius: 20px;
+          .percentag_rang_active {
+            height: 100%;
+            background-color: green;
+            border-radius: 20px;
+            color: #FFF;
+            font-size: 10px;
+            display: flex;
+            justify-content: center;
+          }
+        }
+    }
+    
+    
+  }
+}
 .programmer-image {
   width: 60% !important;
 }
-
+@media only screen and (max-width:1020px){
+  .skill_demo_card_wrapper {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
 @media only screen and (max-width:768px){
   .programmer-image {
     width: 90% !important;
   }
+  .skill_demo_card_wrapper {
+    grid-template-columns: 1fr !important;
+  }
 }
+
+@media screen and (max-width: 500px){
+  
+}
+
 </style>
