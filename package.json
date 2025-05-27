@@ -10,8 +10,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "vue": "^3.4.37",
-    "vue-router": "^4.4.5"
+    "vue": "^3.4.37"
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",

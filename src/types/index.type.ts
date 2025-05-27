@@ -4,4 +4,5 @@ export type Skill = {
     description: string,
     color : string
     percentag : number
+    group : number
 }

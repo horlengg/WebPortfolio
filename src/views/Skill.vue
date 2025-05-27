@@ -13,12 +13,18 @@ const responseSkillList = ref<Skill[]>([])
 const fetchSkills = async()=>{
   const res = await fetch("/db/skill.json")
   if(res.ok){
-    const data = await res.json()
+    const data = await res.json() as Skill[]
     responseSkillList.value = data;
-    const groupSize = 5;
-    for (let i = 0; i < data.length; i += groupSize) {
-      skillListMapped.value.push(data.slice(i, i + groupSize));
-    }
+    skillListMapped.value = data.reduce((acc, curr) => {
+        // Example: Summing up percentages
+        if(acc[curr.group - 1]){
+          acc[curr.group - 1].push(curr)
+        }else {
+          acc[curr.group - 1] = [ curr ]
+        }
+        return acc;
+      }, [] as Array<Skill[]>)
+    
   }
 }
 
@@ -39,7 +45,11 @@ onMounted(() => {
     <section id="skill_demo">
       <!-- <h2 class="title" data-aos="zoom-in" data-aos-duration="500">Skills</h2> -->
       <div class="skill_demo_card_wrapper mt-10">
-        <div class="skill-demo-list" v-for="skills of skillListMapped" >
+        <div 
+          class="skill-demo-list" 
+          v-for="(skills,_) of skillListMapped" 
+          data-aos="fade-up"
+        >
         <div v-for="skill of skills" class="skill_card_demo">
           <div class="skill_logo">
             <img :src="`/images/${skill.logoName}.svg`" />
@@ -48,7 +58,7 @@ onMounted(() => {
             <p class="skill_title" :style="{color : skill.color}"> {{ skill.title }}</p>
             <div class="percentag_rang">
             <div class="percentag_rang_active" :style="{backgroundColor : skill.color,width : skill.percentag + '%'}">
-              {{ skill.percentag }}%
+              {{ skill.percentag }}
             </div>
           </div>
           </div>
@@ -73,7 +83,7 @@ onMounted(() => {
     width: 100%;
   }
   .skill-demo-list {
-    transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease , transform 0.5s ease, opacity 0.5s ease;
     background-color: var(--skill-card-bg);
     color: rgb(63, 185, 51);
     border-radius: 20px;

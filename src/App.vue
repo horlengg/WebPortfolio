@@ -3,12 +3,16 @@ import AppHeader from "@/app/components/app-header.vue"
 import { useBorderBackground } from "./utils/useborderbackground";
 import { onMounted, ref } from "vue";
 import V2Layout from "./app/v2-layout.vue";
+import Aos from "aos";
 
 const background = useBorderBackground()
 const topBarRef = ref<HTMLElement>()
 
 onMounted(()=>{
   background.init({row : 50,column:50});
+  Aos.init({
+    offset : .3
+  });
   document.addEventListener("contextmenu",(e)=>{
     e.preventDefault();
   })
