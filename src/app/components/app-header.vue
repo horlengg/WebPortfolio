@@ -18,7 +18,9 @@ const menuList = [
 const themeModeSwitchListRef = ref<HTMLElement>()
 const appMenubarRef = ref<HTMLElement>()
 let lastScrollTop = 0;
+let timerId:any;
 const isShowMenuApp = ref(false)
+
 const emit = defineEmits<{
     (e: "link"): () => void
 }>()
@@ -26,16 +28,17 @@ const menuClick = () => {
     emit("link");
 }
 const handleScrollApp = () => {
-    if(innerWidth > 768) return
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const isScrollDown = scrollTop > lastScrollTop
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    if (!isScrollDown) {
-        isShowMenuApp.value = true
-    } else {
-        isShowMenuApp.value = false
-    }
-}
+    if (innerWidth > 768) return;
+
+    if (timerId) clearTimeout(timerId);
+
+    timerId = setTimeout(() => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const isScrollDown = scrollTop > lastScrollTop;
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        isShowMenuApp.value = !isScrollDown;
+    }, 100);
+};
 
 onMounted(() => {
     const theme = useTheme(themeModeSwitchListRef.value!)
