@@ -103,7 +103,7 @@ onMounted(() => {
             </span>
           </div>
           <p class="mt-4 text-sm txt-style" data-aos="fade-up" data-aos-duration="500" data-aos-delay="1000">
-            Since June 2023, I have been a dedicated Front End Developer at APD Bank,
+            <!-- Since June 2023, I have been a dedicated Front End Developer at APD Bank,
             where I leverage my expertise to create seamless and engaging user interfaces for our financial products.
             My role involves collaborating closely with cross-functional teams, including back-end developers,
             UX/UI designers, and product managers,
@@ -120,7 +120,17 @@ onMounted(() => {
             capabilities and attention to detail.
             I am passionate about creating intuitive and visually appealing web interfaces that provide a smooth and
             enjoyable experience for our users,
-            thereby contributing to APD Bank’s mission of delivering exceptional digital banking services.
+            thereby contributing to APD Bank’s mission of delivering exceptional digital banking services. -->
+
+            Since June 2023, I have been part of the digital team at APD Bank, initially serving as a Front-End Web Developer and, as of April 2025, advancing into the role of a Mobile Developer. My journey here has been marked by a strong commitment to crafting seamless, engaging, and user-friendly digital experiences for our financial products.
+
+            In my earlier role, I collaborated closely with cross-functional teams—including back-end developers, UX/UI designers, and product managers—to deliver responsive web applications and interactive dashboards using HTML, CSS, JavaScript, and frameworks such as React and Angular. One of my key achievements was leading the redesign of our online banking portal, resulting in a 30% increase in user engagement and a 20% boost in customer satisfaction.
+
+            Since transitioning to mobile development, I’ve been focusing on building high-performance mobile applications using technologies like Flutter and React Native. My work centers around creating intuitive, accessible interfaces tailored for both iOS and Android platforms, while ensuring a consistent experience aligned with APD Bank’s standards of quality and usability.
+
+            This role shift has allowed me to expand my development expertise and contribute to APD Bank’s evolution in mobile banking. I remain dedicated to staying on top of the latest industry trends, continuously integrating innovative solutions to enhance both functionality and user experience. My technical growth has been matched by the deepening of my problem-solving skills, adaptability, and user-first mindset.
+
+            I am passionate about delivering clean, scalable mobile apps that support APD Bank’s mission to provide exceptional, modern digital banking experiences.
           </p>
         </div>
       </div>

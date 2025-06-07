@@ -21,36 +21,35 @@ onMounted(() => {
     <section id="service">
       <div class="left-layout">
         <div>
-          <h2 class="text-typing" data-typing-duration="500">Customer</h2>
-          <h3 class="text-typing mt-1" data-typing-duration="500" data-typing-delay="500">Service</h3>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="1000">
+          <h2 class="text-typing" data-typing-duration="500">Customer Service</h2>
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="500">
             As a dedicated freelance developer,
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="1500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1000">
             I provide tailored, high-quality web
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="2000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="1500">
             and software development solutions
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="2500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2000">
             designed to meet your unique needs.
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="3000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="2500">
             Whether you're a startup, small business,
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="3500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3000">
             or enterprise, I specialize in crafting
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="4000">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="3500">
             scalable, efficient,
           </p>
-          <p class="text-typing text-sm mt-2 txt-style" data-typing-duration="500" data-typing-delay="4500">
+          <p class="text-typing text-sm mt-1 txt-style" data-typing-duration="500" data-typing-delay="4000">
             and robust systems that help drive your success.
           </p>
         </div>
-        <div class="mt-5 btn-more-wrapper">
+        <div class="mt-5 btn-more-wrapper" data-aos="fade-down" data-aos-duration="500" data-aos-delay="3000">
           <a href="#service-doc">
-            <button class="simple-button learn-more" data-aos="fade-down" data-aos-duration="1500">
+            <button class="simple-button learn-more" >
               Learn More
             </button>
           </a>
@@ -68,24 +67,24 @@ onMounted(() => {
       <h3 data-aos="zoom-in" data-aos-duration="1000" class="mt-2" style="text-align: center;">Our Feature & Service</h3>
       <div class="list-service-card mt-5">
         <ServiceCard 
-          title="Build Website" 
+          title="Mobile App & Website Development Services" 
           :image="WebsiteImage" 
-          description="Create fully tailored websites using HTML, CSS, JavaScript, JAVA, or other relevant languages."
+          description="Looking to bring your ideas to life with a high-performing mobile app or a sleek, responsive website? I specialize in custom development solutions tailored to your business needs. Whether you're launching a startup, building a business platform, or upgrading an existing product, I deliver intuitive, scalable, and user-friendly digital experiences."
         />
         <ServiceCard 
-          title="UI/UX Design" 
+          title="UX/UI Design Services" 
           :image="DesignToolImage" 
-          description="Design visually appealing and user-friendly interfaces with a focus on the user experience."
+          description="Crafting Beautiful, User-Centered Digital Experiences I specialize in creating clean, intuitive, and engaging user experiences that not only look great but also deliver real results. Whether you're launching a new app, refreshing a website, or building a digital product from scratch, I design interfaces that users love to interact with."
         />
         <ServiceCard 
-          title="API Services" 
+          title="API Development Services" 
           :image="MobileImage" 
-          description="I design and develop RESTful and GraphQL APIs that are secure, scalable, and well-documented."
+          description="Build Fast, Secure, and Scalable Backends for Your Apps I provide reliable API development services that power seamless communication between your mobile apps, websites, and third-party platforms. Whether you're building a new system or integrating with existing services, I create custom APIs that are clean, secure, and easy to maintain."
         />
         <ServiceCard 
-          title="API Integration" 
+          title="API Integration Services" 
           :image="VuelaravelImage" 
-          description="Seamlessly connect your application with external services (like payment gateways, social media platforms, CRMs, etc.) for smooth data flow and functionality."
+          description="Connect, Automate, and Expand Your Digital Ecosystem I help businesses streamline operations and enhance functionality by integrating powerful third-party APIs into their apps, websites, or systems. From payment gateways to cloud services, I ensure smooth, secure, and scalable API connections that just work."
         />
         
       </div>

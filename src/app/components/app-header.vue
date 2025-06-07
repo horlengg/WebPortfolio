@@ -47,7 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <header class="app-header">
+    <header class="app-header layout_responsive">
         <nav id="app-menu" class="app-menu" :class="{'active':isShowMenuApp}" ref="appMenubarRef">
             <ul>
                 <li class="app-menu_item" v-for="menu of menuList" :key="menu.label" @click="menuClick">
@@ -84,7 +84,8 @@ onMounted(() => {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -171,7 +172,7 @@ onMounted(() => {
     .btn-switch-theme {
         width: 100px;
         height: 35px;
-        margin-right: 30px;
+        margin-right: 10px;
         border-radius: 5px;
         display: flex;
         align-items: center;
@@ -213,6 +214,8 @@ onMounted(() => {
 
 @media screen and (max-width: 768px) {
     .app-header {
+        left: 0;
+        transform: none;
         .app-menu {
             padding-top: 0px;
             background-color: var(--layout-color);

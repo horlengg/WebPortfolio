@@ -36,7 +36,7 @@ const scrollAppToTop = ()=>{
   <AppHeader @link="scrollAppToTop"/>
 
   <div class="topElement" ref="topBarRef"></div>
-  <div class="app-container">
+  <div class="app-container layout_responsive">
     <router-view v-slot="{ Component ,route}">
       <transition name="app"> 
         <component :is="Component" :key="route.name"/>

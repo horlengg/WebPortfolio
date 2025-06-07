@@ -7,7 +7,8 @@ enum ThemeMode {
 
 export function useTheme(themeModeListElement:HTMLElement){
 
-    const isClientUsingLightMode = ()=> Storage.getTheme() === ThemeMode.LIGHT
+    
+    const isClientUsingLightMode = () => Storage.getTheme() == ThemeMode.LIGHT
 
     const toggleTheme = ()=>{
         checkTheme(isClientUsingLightMode() ? ThemeMode.DARK : ThemeMode.LIGHT)
@@ -32,9 +33,21 @@ export function useTheme(themeModeListElement:HTMLElement){
     }
 
     const init = ()=>{
+        let theme = Storage.getTheme();
+        if(theme == null){
+            const prefersDarkMode = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+            theme = prefersDarkMode ? ThemeMode.DARK : ThemeMode.LIGHT;
+        }
+        checkTheme(theme)
+
         const buttonChangeTheme = document.getElementById("btn-change-them")
         buttonChangeTheme?.addEventListener("click",toggleTheme)
-        checkTheme()
+
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        darkModeMediaQuery.addEventListener('change', (e) => {
+            checkTheme(e.matches ? ThemeMode.DARK : ThemeMode.LIGHT)
+        });
+        
     }
 
     return {

@@ -77,19 +77,18 @@ button {
     font-weight: 700;
   }
 }
-
 .social-media {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   button.social-media_btn {
     background-color: transparent;
-    max-width: 35px;
-    width: 35px;
-    height: 35px;
-    border-radius: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     padding-left: 7px;
     color: #fff;
@@ -99,11 +98,8 @@ button {
     font-size: 10px;
     letter-spacing: .5px;
     font-weight: 600;
-    .icon {
-      transform: translateY(1px);
-      svg {
-        width: 20px;
-      }
+    svg {
+      width: 30px;
     }
     .title {
       white-space: nowrap;
@@ -335,7 +331,7 @@ h6 {
       flex-direction: column;
       justify-content: center;
       img {
-        width: 100%;
+        width: 300px;
       }
     }
   }
@@ -400,6 +396,24 @@ h6 {
   }
 }
 
+
+
+.layout_responsive {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1080px) {
+  .profile-image-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+  .layout_responsive {
+    width: 90%;
+  }
+}
+
 @media screen and (max-width: 768px) {
 
   .app-container {
@@ -411,9 +425,6 @@ h6 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        p {
-          padding-left: 20px;
-        }
       }
     }
     #project-demo,
@@ -434,5 +445,8 @@ h6 {
     .skill-demo-list {
       grid-template-columns: 1fr !important;
     }
+  }
+  .layout_responsive {
+    width: 98%;
   }
 }
