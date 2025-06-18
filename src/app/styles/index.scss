@@ -1,0 +1,81 @@
+@import url("./fonts-setup.scss");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    --highlight-color : #9875d1;
+    --primary-text-color : #48506D;
+    font-size: 16px;    
+    color: var(--primary-text-color);
+}
+
+.border_only {
+    border-top: 1px solid  var(--primary-text-color);
+    opacity: .5;
+}
+.project_demo_link {
+    color: var(--highlight-color);
+}
+.experience_list {
+    list-style-type: disc;
+    padding-left: 10px;
+}
+
+.app_layout_fixed {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 20px 0;
+    .app_header {
+        .bl_profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            img.profile_header {
+                width: 30px;
+            }
+            .pf_title {
+                font-size: 22px;
+                color: var(--highlight-color);
+                font-weight: 500;
+            }
+        }
+
+    }
+
+    .contact_list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer_content {
+        display: flex;
+        justify-content: center;
+        margin: 100px 0;
+        color: var(--highlight-color);
+    }
+
+}
+
+
+
+
+/* Tablet and up */
+@media (min-width: 768px) {
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+    .app_layout_fixed {
+        width: 1024px;
+    }
+    .experience_list {
+        padding-left: 30px;
+    }    
+}

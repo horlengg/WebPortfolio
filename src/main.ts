@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
-import './style.scss'
 import App from './App.vue'
-import 'aos/dist/aos.css'
+import "./app/styles/index.scss"
 
 const app = createApp(App)
 app.mount('#app')
