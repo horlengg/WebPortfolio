@@ -11,7 +11,7 @@ defineProps<{
 </script>
 
 <template>
-  <a :href="link">
+  <a :href="link" target="_blank">
     <img :src="icon" alt="icon" height="20" width="20">
     <span>
       {{ label }}

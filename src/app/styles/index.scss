@@ -11,6 +11,25 @@ body {
     --primary-text-color : #48506D;
     font-size: 16px;    
     color: var(--primary-text-color);
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .app_container {
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+pre.hljs {
+    padding: 20px;
+    // background: #d4d4d4;
+    code {
+        font-size: 14px;
+    }
 }
 
 .border_only {
@@ -22,11 +41,12 @@ body {
 }
 .experience_list {
     list-style-type: disc;
-    padding-left: 10px;
+    margin-left: 20px;
 }
 
 .app_layout_fixed {
     width: 90vw;
+    max-width: 1024px;
     margin: 0 auto;
     padding: 20px 0;
     .app_header {
@@ -60,7 +80,34 @@ body {
         margin: 100px 0;
         color: var(--highlight-color);
     }
-
+    .demo_img {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        width: 100%;
+        .demo_img_item {
+            width: 100%;
+        }
+        .img_wrapper {
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            background-color: rgb(224, 224, 224);
+            &:not(.single_img_mode) {
+                height: 300px;
+            }
+            &.single_img_mode {
+                height: 400px;
+            }
+            // &:first-of-type{
+            //     background-image: url('/src/app/assets/apd_team.png');
+            // }
+            // &:last-of-type {
+            //     background-image: url('/images/s4.jpg');
+            // }
+            
+        }
+    }
 }
 
 
@@ -68,14 +115,57 @@ body {
 
 /* Tablet and up */
 @media (min-width: 768px) {
+    .app_layout_fixed {
+        width: 90vw !important;
+        .demo_img {
+            flex-direction: row !important;
+            hr {
+                display: none;
+            }
+        }
+    }
 }
 
 /* Desktop and up */
 @media (min-width: 1024px) {
     .app_layout_fixed {
-        width: 1024px;
+        width: 80vw !important;
     }
-    .experience_list {
-        padding-left: 30px;
-    }    
+    
+}
+
+/* mobile only */
+@media (max-width: 500px) {
+    .demo_img .demo_img_item .img_wrapper {
+        &:not(.single_img_mode){
+            height: 200px;
+        }
+        &.single_img_mode {
+            height: 200px;
+        }
+    } 
+    
+}
+
+
+// ====> Intersection Observer Transition class
+
+// fadeIn
+.__fadeIn_element {
+    opacity: 0;
+    transition: opacity .2s ease;
+}
+.__fadeIn_element.__fadeIn_element_active {
+    opacity: 1;
+}
+
+// fadeInUp
+.__fadeInUp_element {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity .3s ease , transform .2s ease-out;
+}
+.__fadeInUp_element.__fadeInUp_element_active {
+    opacity: 1;
+    transform: translateY(0);
 }

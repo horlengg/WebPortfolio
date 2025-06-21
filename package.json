@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.7",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^22.7.4",
     "@vitejs/plugin-vue": "^5.1.2",
     "sass-embedded": "^1.79.4",
