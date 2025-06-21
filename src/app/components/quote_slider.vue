@@ -42,7 +42,7 @@ const setEventChangeImage = ()=>{
 }
 const checkLayoutLeftHeight = ()=>{
     const layoutLeftOffsetHeight = leftLayoutSlideRef.value?.offsetHeight ?? 0;
-    if(leftLayoutSlideRef.value && maxLeftLayoutHeight.value < layoutLeftOffsetHeight){
+    if(maxLeftLayoutHeight.value < layoutLeftOffsetHeight){
         maxLeftLayoutHeight.value = layoutLeftOffsetHeight;
     }
 }
@@ -73,9 +73,12 @@ onMounted(()=>{
     <div class="pf_animation_container mt_70" 
         v-if="slides.length" 
         :key="quoteDOMkey"
-        :style="{minHeight : `${maxLeftLayoutHeight}px`}"
     >
-        <div class="__left" ref="leftLayoutSlideRef">
+        <div 
+            class="__left" 
+            ref="leftLayoutSlideRef" 
+            :style="{minHeight : `${maxLeftLayoutHeight}px`}"
+        >
             <p class="paragraph" v-html="slides[currentIndex].quote.join(' ')"></p>
         </div>
         <div class="__right">
