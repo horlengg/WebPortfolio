@@ -12,6 +12,7 @@ const loadQuoteList = async()=>{
     const resp = await fetch("/db/quotes.json");
     const data = await resp.json();
     slides.value = data.data ?? []
+    setEventChangeImage();
     setTimeout(()=>{
         checkLayoutLeftHeight();
     },100)
@@ -20,7 +21,6 @@ const loadQuoteList = async()=>{
 const currentIndex = ref(0);
 const setEventChangeImage = ()=>{
     setInterval(()=>{
-        
         if(currentIndex.value == slides.value.length - 1){
             currentIndex.value = 0;
         }else {
@@ -38,8 +38,6 @@ const checkLayoutLeftHeight = ()=>{
         leftLayoutSlideRef.value.style.minHeight = `${layoutLeftOffsetHeight}px`;
     }
 }
-
-setEventChangeImage();
 
 onMounted(()=>{
     loadQuoteList();
@@ -117,7 +115,7 @@ onMounted(()=>{
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         .img_bl {
             width: var(--layout-width);
             height: 200px;
