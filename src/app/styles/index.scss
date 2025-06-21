@@ -5,18 +5,18 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+html, body {
+    overflow : hidden;
+}
 body {
     --highlight-color : #9875d1;
     --primary-text-color : #48506D;
     font-size: 16px;    
     color: var(--primary-text-color);
-    &::-webkit-scrollbar {
-        display: none;
-    }
+    background-color: #FFF;
     .app_container {
         height: 100vh;
-        overflow-y: auto;
+        overflow-y: scroll;
         overflow-x: hidden;
         &::-webkit-scrollbar {
             display: none;

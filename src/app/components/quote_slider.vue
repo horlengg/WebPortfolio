@@ -5,22 +5,38 @@ const slides = ref<Array<{
     img : string,
     quote : string[]
 }>>([]);
+const leftLayoutSlideRef = ref<HTMLElement>();
+let maxLeftLayoutHeight = 0;
 
 const loadQuoteList = async()=>{
     const resp = await fetch("/db/quotes.json");
     const data = await resp.json();
     slides.value = data.data ?? []
+    setTimeout(()=>{
+        checkLayoutLeftHeight();
+    },100)
 }
 
 const currentIndex = ref(0);
 const setEventChangeImage = ()=>{
     setInterval(()=>{
+        
         if(currentIndex.value == slides.value.length - 1){
             currentIndex.value = 0;
         }else {
             currentIndex.value++;
         }
+        setTimeout(()=>{
+            checkLayoutLeftHeight();
+        },100)
     },5000)
+}
+const checkLayoutLeftHeight = ()=>{
+    const layoutLeftOffsetHeight = leftLayoutSlideRef.value?.offsetHeight ?? 0;
+    if(leftLayoutSlideRef.value && maxLeftLayoutHeight < layoutLeftOffsetHeight){
+        maxLeftLayoutHeight = layoutLeftOffsetHeight;
+        leftLayoutSlideRef.value.style.minHeight = `${layoutLeftOffsetHeight}px`;
+    }
 }
 
 setEventChangeImage();
@@ -33,7 +49,7 @@ onMounted(()=>{
 
 <template>
     <div class="pf_animation_container mt_70" v-if="slides.length">
-        <div class="__left">
+        <div class="__left" ref="leftLayoutSlideRef">
             <p class="paragraph" v-html="slides[currentIndex].quote.join(' ')"></p>
         </div>
         <div class="__right">
@@ -101,7 +117,7 @@ onMounted(()=>{
         display: flex;
         justify-content: center;
         align-items: center;
-
+        
         .img_bl {
             width: var(--layout-width);
             height: 200px;
