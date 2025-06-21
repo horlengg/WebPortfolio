@@ -6,7 +6,7 @@ const slides = ref<Array<{
     quote : string[]
 }>>([]);
 const leftLayoutSlideRef = ref<HTMLElement>();
-let maxLeftLayoutHeight = 0;
+let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
 const QUOTE_SLIDE_REFRESH_DURATION = 60; // 60s
 let timeCounter = 0
@@ -42,9 +42,8 @@ const setEventChangeImage = ()=>{
 }
 const checkLayoutLeftHeight = ()=>{
     const layoutLeftOffsetHeight = leftLayoutSlideRef.value?.offsetHeight ?? 0;
-    if(leftLayoutSlideRef.value && maxLeftLayoutHeight < layoutLeftOffsetHeight){
-        maxLeftLayoutHeight = layoutLeftOffsetHeight;
-        leftLayoutSlideRef.value.style.minHeight = `${layoutLeftOffsetHeight}px`;
+    if(leftLayoutSlideRef.value && maxLeftLayoutHeight.value < layoutLeftOffsetHeight){
+        maxLeftLayoutHeight.value = layoutLeftOffsetHeight;
     }
 }
 const setTimeRefreshQuoteSlide = ()=>{
@@ -71,7 +70,11 @@ onMounted(()=>{
 </script>
 
 <template>
-    <div class="pf_animation_container mt_70" v-if="slides.length" :key="quoteDOMkey">
+    <div class="pf_animation_container mt_70" 
+        v-if="slides.length" 
+        :key="quoteDOMkey"
+        :style="{minHeight : `${maxLeftLayoutHeight}px`}"
+    >
         <div class="__left" ref="leftLayoutSlideRef">
             <p class="paragraph" v-html="slides[currentIndex].quote.join(' ')"></p>
         </div>
