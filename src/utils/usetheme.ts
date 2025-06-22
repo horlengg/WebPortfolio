@@ -16,8 +16,8 @@ export function useTheme(){
     const setThemeCounterBaseThemeMode = (_theme?:ThemeMode)=>{
         let theme = _theme ?? Storage.getTheme();
         if(theme == null){
-            const prefersDarkMode = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-            theme = prefersDarkMode ? ThemeMode.DARK : ThemeMode.LIGHT;
+            // const prefersDarkMode = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+            theme = ThemeMode.DEVICE;
         }
         if(theme == ThemeMode.DARK) toggleThemeCounter = 0;
         else if(theme == ThemeMode.LIGHT) toggleThemeCounter = 1;
