@@ -10,10 +10,24 @@ html, body {
 }
 body {
     --highlight-color : #9875d1;
-    --primary-text-color : #48506D;
+    &:not(.dark){
+        --primary-text-color : #48506D;
+        --layout-color : #FFFFFF;
+        --quote-inspiration-bg : rgb(244, 241, 241);
+        --quote-inspiration-bg-bar : rgb(179, 178, 178);
+
+    }
+    &.dark {
+        --layout-color : #242424;// #413C46;
+        --primary-text-color : #e2e4ec;
+        --quote-inspiration-bg : #493d57;
+        --quote-inspiration-bg-bar : #9875d1;
+
+    }
     font-size: 16px;    
     color: var(--primary-text-color);
-    background-color: #FFF;
+    background-color: var(--layout-color);
+    transition: background-color .3s ease-out , color .3s ease-out;
     .app_container {
         height: 100vh;
         overflow-y: scroll;
@@ -43,7 +57,6 @@ pre.hljs {
     list-style-type: disc;
     margin-left: 20px;
 }
-
 .app_layout_fixed {
     width: 90vw;
     max-width: 1024px;

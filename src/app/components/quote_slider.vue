@@ -110,30 +110,27 @@ onMounted(()=>{
                 display: inline-block;
                 padding: 5px 15px;
                 margin-top: 10px;
-                background-color: rgb(244, 241, 241);
-                &::before {
-                    content: "";
-                    display: inline-block;
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    width: 4px;
-                    height: 100%;
-                    background-color: rgb(179, 178, 178);
-                    z-index: 10;
-                    border-radius: 10px;
-                }
+                background-color: var(--quote-inspiration-bg);
+                transition: background-color .3s ease-out , color .3s ease-out;
+                &::before,
                 &::after {
                     content: "";
                     display: inline-block;
                     position: absolute;
-                    right: 0;
                     top: 0;
                     width: 4px;
                     height: 100%;
-                    background-color: rgb(179, 178, 178);
+                    background-color: var(--quote-inspiration-bg-bar);
                     z-index: 10;
                     border-radius: 10px;
+                    transition: background-color 0.3s ease-out;
+                }
+
+                &::before {
+                    left: 0;
+                }
+                &::after {
+                    right: 0;
                 }
             }
             .author {
