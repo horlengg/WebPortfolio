@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { onMounted, ref } from 'vue';
-import Home from './app/pages/home.vue';
+// import Home from './app/pages/home.vue';
 import BuildButtonTheme from './app/components/build_button_theme.vue';
 
 
@@ -24,8 +24,8 @@ onMounted(()=>{
 <template>
   
   <div class="app_container app_layout_fixed zilla-slab-regular" ref="appRef">
-    <!-- <RouterView /> -->
     <BuildButtonTheme />
-     <Home />
+    <RouterView />
+     <!-- <Home /> -->
   </div>
 </template>

@@ -1,19 +1,19 @@
 <script setup lang="ts">
 // import { onMounted } from "vue";
+import { onMounted } from "vue";
 import LinkButton from "../components/link_btn.vue"
-
-// import { useIntersectionObserver } from "@/utils/useIntersectionObserver";
 import QuoteSlider from "../components/quote_slider.vue";
+import { useIntersectionObserver } from "@/utils/useIntersectionObserver";
 
 
 
-// onMounted(()=>{
-//   const observer =useIntersectionObserver({
-//     container : document.querySelector(".app_container")!,
-//     targets : Array.from(document.querySelectorAll("[build-active-class]")!).map(e => e as HTMLElement)
-//   });
-//   observer.init();
-// })
+onMounted(()=>{
+  const observer =useIntersectionObserver({
+    container : document.querySelector(".app_container")!,
+    targets : Array.from(document.querySelectorAll("[build-active-class]")!).map(e => e as HTMLElement)
+  });
+  observer.init();
+})
 
 
 </script>
@@ -43,7 +43,7 @@ import QuoteSlider from "../components/quote_slider.vue";
 
   <section id="Skills" class="mt_70">
 
-    <p class="title_label_bold vt323">🛠️ Skills & Tech Stack </p>
+    <p class="title_label_bold vt323" build-active-class="________test">🛠️ Skills & Tech Stack </p>
     <!-- Frontend Dev -->
     <p class="list_title_highlight mt_20"> Frontend Development </p>
     <p>
@@ -75,7 +75,7 @@ import QuoteSlider from "../components/quote_slider.vue";
 
   <!-- Projects -->
   <section id="Project" class="mt_70" >
-    <p class="title_label_bold vt323">🚀 Projects</p>
+    <p class="title_label_bold vt323" build-active-class="________test">🚀 Projects</p>
     <!-- Frontend Dev -->
     <p class="list_title_highlight mt_20"> 🎬 Movie Web Application </p>
     <div class="mt_40 demo_img">
@@ -129,7 +129,7 @@ import QuoteSlider from "../components/quote_slider.vue";
 
   <section id="Experience" class="mt_70">
     
-    <p class="title_label_bold vt323"> 🧑‍💻 Experience </p>
+    <p class="title_label_bold vt323"build-active-class="________test"> 🧑‍💻 Experience </p>
 
     <!-- As a web developer -->
     <p class="list_title_highlight mt_10">Web Developer – APD Bank</p>
