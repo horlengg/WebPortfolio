@@ -1,7 +1,7 @@
 {
     "data" : [
         {
-            "img" : "/images/s9.jpeg",
+            "img" : "src/app/assets/images/s9.jpeg",
             "quote" : [
                 "Don’t do unto others what you don’t want others to do unto you!.",
                 "<br><span class='inspiration'>“Your actions echo in the lives of others.<br>If you crave kindness, offer it.<br>If you fear cruelty, avoid it.<br>Peace begins not with grand gestures, but with the quiet choice to cause no harm.”</span>",
@@ -9,7 +9,7 @@
             ]
         },
         {
-            "img" : "/images/s1.jpg",
+            "img" : "src/app/assets/images/s1.jpg",
             "quote" : [
                 "Thirty years the river flows east, thirty years the river flows west; don't bully the young and poor.",
                 "<br><span class='inspiration'>“Life turns like a river. Today you may mock the weak — tomorrow, they may rise above you. Respect everyone, especially those still growing.”</span>",
@@ -18,7 +18,7 @@
             
         },
         {
-            "img" : "/images/s8.jpg",
+            "img" : "src/app/assets/images/s8.jpg",
             "quote" : [
                 "It doesn't matter if you don't have talent; the only thing you need is to overcome laziness.",
                 "<br><span class='inspiration'>“You don’t need talent to succeed — just the discipline to show up when it’s hard.“</span>",

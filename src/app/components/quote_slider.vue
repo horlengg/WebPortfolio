@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { quoteList } from '@/utils/useLocalData';
 
-const slides = ref<Array<{
-    img : string,
-    quote : string[]
-}>>([]);
+const slides = ref(quoteList);
+
 const leftLayoutSlideRef = ref<HTMLElement>();
 let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
@@ -12,16 +11,6 @@ const QUOTE_SLIDE_REFRESH_DURATION = 60; // 60s
 let timeCounter = 0
 let changeImageTimer:NodeJS.Timeout ;
 let refreshSlideTimer:NodeJS.Timeout ;
-
-const loadQuoteList = async()=>{
-    const resp = await fetch("/db/quotes.json");
-    const data = await resp.json();
-    slides.value = data.data ?? []
-    setEventChangeImage();
-    setTimeout(()=>{
-        checkLayoutLeftHeight();
-    },100)
-}
 
 const currentIndex = ref(0);
 const setEventChangeImage = ()=>{
@@ -64,7 +53,11 @@ const setTimeRefreshQuoteSlide = ()=>{
 
 onMounted(()=>{
     timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-    loadQuoteList();
+    // loadQuoteList();
+    setEventChangeImage();
+    setTimeout(()=>{
+        checkLayoutLeftHeight();
+    },100)
 })
 
 </script>
