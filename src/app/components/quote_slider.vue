@@ -2,12 +2,12 @@
 import { onMounted, ref } from 'vue';
 import { quoteList } from '@/utils/useLocalData';
 
-const slides = ref(quoteList);
+const slides = ref<Array<{img: string;quote: string[];}>>([]);
 
 const leftLayoutSlideRef = ref<HTMLElement>();
 let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
-const QUOTE_SLIDE_REFRESH_DURATION = 60; // 60s
+const QUOTE_SLIDE_REFRESH_DURATION = 45; // 60s
 let timeCounter = 0
 let changeImageTimer:NodeJS.Timeout ;
 let refreshSlideTimer:NodeJS.Timeout ;
@@ -26,7 +26,7 @@ const setEventChangeImage = ()=>{
         setTimeout(()=>{
             checkLayoutLeftHeight();
         },100)
-    },5000)
+    },4950)
     setTimeRefreshQuoteSlide();
 }
 const checkLayoutLeftHeight = ()=>{
@@ -54,6 +54,7 @@ const setTimeRefreshQuoteSlide = ()=>{
 onMounted(()=>{
     timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
     // loadQuoteList();
+    slides.value = quoteList;
     setEventChangeImage();
     setTimeout(()=>{
         checkLayoutLeftHeight();
