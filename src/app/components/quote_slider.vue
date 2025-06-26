@@ -39,16 +39,18 @@ const setTimeRefreshQuoteSlide = ()=>{
     if(refreshSlideTimer) clearInterval(refreshSlideTimer);
     refreshSlideTimer = setInterval(()=>{
         if(timeCounter == 0) {
-            setEventChangeImage();
-            quoteDOMkey.value = Date.now().toString();
-            currentIndex.value = 0;
-            timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-            console.log("Refresh at : "+new Date().toTimeString());
-            
+            refreshQuoteSlide();
         }else {
             timeCounter--;
         }
     },1000)
+}
+const refreshQuoteSlide = ()=>{
+    setEventChangeImage();
+    quoteDOMkey.value = Date.now().toString();
+    currentIndex.value = 0;
+    timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
+    console.log("Refresh at : "+new Date().toTimeString());
 }
 
 onMounted(()=>{
@@ -59,6 +61,13 @@ onMounted(()=>{
     setTimeout(()=>{
         checkLayoutLeftHeight();
     },100)
+})
+
+document.addEventListener("visibilitychange",()=>{
+    console.log(`Client Status :::: ${document.visibilityState}`);
+    if(document.visibilityState == "visible"){
+        refreshQuoteSlide();
+    }
 })
 
 </script>

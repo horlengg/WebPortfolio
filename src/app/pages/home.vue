@@ -217,7 +217,7 @@ const getImageUrl = (fileName: string) => {
 
   <section id="Education" class="mt_70">
     
-    <p class="title_label_bold vt323"> 🎓 Education & Trainning </p>
+    <p class="title_label_bold vt323"> 🎓 Education & Training </p>
     <!-- As a web developer -->
     <p class="list_title_highlight mt_10">Royal University of Phnom Penh</p>
     <p>
