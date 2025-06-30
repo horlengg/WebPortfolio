@@ -8,6 +8,8 @@ const leftLayoutSlideRef = ref<HTMLElement>();
 let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
 let animationStartDate = Date.now();
+let startPausedAnimationDate = 0;
+let pauseAnimationTime = 0
 
 const animationPaused = ref(false);
 
@@ -33,31 +35,32 @@ function animationStart(){
 
 function animationIteration(){
     animationStartDate = Date.now();
+    pauseAnimationTime = 0;
     if(currentIndex.value == slides.value.length - 1){
         currentIndex.value = 0;
     } else currentIndex.value++;
     checkLayoutLeftHeight();
 }
 
-function onMouseLeave(_:MouseEvent){
+function onMouseLeave(){
     animationPaused.value = false
+    pauseAnimationTime += Date.now() - startPausedAnimationDate;
 }
 
-function onMouseOver(_:MouseEvent){
-    const duration = Date.now() - animationStartDate
-    if(duration >= 500 && duration < 4500){
+function onMouseOver(){
+    if(animationPaused.value) return
+    startPausedAnimationDate = Date.now();
+    const duration = Date.now() - animationStartDate - pauseAnimationTime
+    if(duration > 500 && duration < 4000){
         animationPaused.value = true
     }
 }
 function onTouchStart(_: TouchEvent) {
-  const duration = Date.now() - animationStartDate
-  if (duration > 500 && duration < 4750) {
-    animationPaused.value = true
-  }
+    onMouseOver();
 }
 
 function onTouchEnd(_: TouchEvent) {
-  animationPaused.value = false
+    onMouseLeave();
 }
 
 </script>
