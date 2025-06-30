@@ -7,68 +7,58 @@ const slides = ref<Array<{img: string;quote: string[];}>>([]);
 const leftLayoutSlideRef = ref<HTMLElement>();
 let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
-const QUOTE_SLIDE_REFRESH_DURATION = 45; // 60s
-let timeCounter = 0
-let changeImageTimer:NodeJS.Timeout ;
-let refreshSlideTimer:NodeJS.Timeout ;
+let animationStartDate = Date.now();
+
+const animationPaused = ref(false);
 
 const currentIndex = ref(0);
-const setEventChangeImage = ()=>{
-    if(changeImageTimer) {
-        clearInterval(changeImageTimer);
-    }
-    changeImageTimer = setInterval(()=>{
-        if(currentIndex.value == slides.value.length - 1){
-            currentIndex.value = 0;
-        }else {
-            currentIndex.value++;
-        }
-        setTimeout(()=>{
-            checkLayoutLeftHeight();
-        },100)
-    },4950)
-    setTimeRefreshQuoteSlide();
-}
+
 const checkLayoutLeftHeight = ()=>{
     const layoutLeftOffsetHeight = leftLayoutSlideRef.value?.offsetHeight ?? 0;
     if(maxLeftLayoutHeight.value < layoutLeftOffsetHeight){
         maxLeftLayoutHeight.value = layoutLeftOffsetHeight;
     }
 }
-const setTimeRefreshQuoteSlide = ()=>{
-    if(refreshSlideTimer) clearInterval(refreshSlideTimer);
-    refreshSlideTimer = setInterval(()=>{
-        if(timeCounter == 0) {
-            refreshQuoteSlide();
-        }else {
-            timeCounter--;
-        }
-    },1000)
-}
-const refreshQuoteSlide = ()=>{
-    setEventChangeImage();
-    quoteDOMkey.value = Date.now().toString();
-    currentIndex.value = 0;
-    timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-    console.log("Refresh at : "+new Date().toTimeString());
-}
 
 onMounted(()=>{
-    timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-    // loadQuoteList();
     slides.value = quoteList;
-    setEventChangeImage();
-    setTimeout(()=>{
-        checkLayoutLeftHeight();
-    },100)
+    checkLayoutLeftHeight();
+    console.log("Slide loaded!. ): ");
 })
 
-document.addEventListener("visibilitychange",()=>{
-    console.log(`Client Status :::: ${document.visibilityState}`);
-    if(document.visibilityState == "visible"){
-        refreshQuoteSlide();
+
+function animationStart(){
+    animationStartDate = Date.now();
+}
+
+function animationIteration(){
+    animationStartDate = Date.now();
+    if(currentIndex.value == slides.value.length - 1){
+        currentIndex.value = 0;
+    } else currentIndex.value++;
+    checkLayoutLeftHeight();
+}
+
+function onMouseLeave(_:MouseEvent){
+    animationPaused.value = false
+}
+
+function onMouseOver(_:MouseEvent){
+    const duration = Date.now() - animationStartDate
+    if(duration >= 500 && duration < 4500){
+        animationPaused.value = true
     }
-})
+}
+function onTouchStart(_: TouchEvent) {
+  const duration = Date.now() - animationStartDate
+  if (duration > 500 && duration < 4750) {
+    animationPaused.value = true
+  }
+}
+
+function onTouchEnd(_: TouchEvent) {
+  animationPaused.value = false
+}
 
 </script>
 
@@ -76,13 +66,23 @@ document.addEventListener("visibilitychange",()=>{
     <div class="pf_animation_container mt_70" 
         v-if="slides.length" 
         :key="quoteDOMkey"
+        :class="{'animation_paused' : animationPaused}"
+        @mouseover="onMouseOver"
+        @mouseleave="onMouseLeave"
+        @touchstart="onTouchStart"
+        @touchend="onTouchEnd"
     >
         <div 
             class="__left" 
             ref="leftLayoutSlideRef" 
-            :style="{minHeight : `${maxLeftLayoutHeight}px`}"
+            :style="{minHeight : `${maxLeftLayoutHeight}px`,animationPlayState : animationPaused ? 'paused' : 'running'}"
         >
-            <p class="paragraph" v-html="slides[currentIndex].quote.join(' ')"></p>
+            <p 
+                class="paragraph" 
+                v-html="slides[currentIndex].quote.join(' ')"
+                @animationstart="animationStart"
+                @animationiteration="animationIteration"
+            ></p>
         </div>
         <div class="__right">
             <div class="img_bl" :style="{backgroundImage : `url('${slides[currentIndex].img}')`}"></div>
@@ -104,6 +104,9 @@ document.addEventListener("visibilitychange",()=>{
     gap: 20px;
     flex-direction: column-reverse;
     justify-content: center top;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     .__left {
         flex: 1;
         .paragraph {
@@ -158,12 +161,24 @@ document.addEventListener("visibilitychange",()=>{
             background-color: rgb(224, 224, 224);
         }
     }
+    &.animation_paused {
+        .__left .paragraph,
+        .__right .img_bl {
+            animation-play-state: paused !important;
+            -moz-animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important;
+        }
+    }
     @keyframes __paragraphAnimatedKeyFrame {
         0% {
             opacity: 0;
             transform: translate(calc(-1 * var(--fade-distance, 0)),0);
         }
         5% {
+            opacity: 0;
+            transform: translate(calc(-1 * var(--fade-distance, 0)),0);
+        }
+        10% {
             opacity: 1;
             transform: translate(0,0);
         }
@@ -187,6 +202,10 @@ document.addEventListener("visibilitychange",()=>{
             transform: translate(var(--fade-distance),0);
         }
         5% {
+            opacity: 0;
+            transform: translate(var(--fade-distance),0);
+        }
+        10% {
             opacity: 1;
             transform: translate(0,0);
         }
@@ -235,6 +254,10 @@ document.addEventListener("visibilitychange",()=>{
                 transform: translate(0,var(--fade-distance));
             }
             5% {
+                opacity: 0;
+                transform: translate(0,var(--fade-distance));
+            }
+            10% {
                 opacity: 1;
                 transform: translate(0,0);
             }
@@ -258,6 +281,10 @@ document.addEventListener("visibilitychange",()=>{
                 transform: translate(0,calc(-1 * var(--fade-distance, 0)));
             }
             5% {
+                opacity: 0;
+                transform: translate(0,calc(-1 * var(--fade-distance, 0)));
+            }
+            10% {
                 opacity: 1;
                 transform: translate(0,0);
             }

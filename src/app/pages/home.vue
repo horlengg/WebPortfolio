@@ -1,25 +1,22 @@
 <script setup lang="ts">
-// import { onMounted } from "vue";
+import { ref } from "vue";
 import LinkButton from "../components/link_btn.vue"
-
-// import { useIntersectionObserver } from "@/utils/useIntersectionObserver";
 import QuoteSlider from "../components/quote_slider.vue";
+
 const images = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
 
-
-
-// onMounted(()=>{
-//   const observer =useIntersectionObserver({
-//     container : document.querySelector(".app_container")!,
-//     targets : Array.from(document.querySelectorAll("[build-active-class]")!).map(e => e as HTMLElement)
-//   });
-//   observer.init();
-// })
+const slideKey = ref(Date.now.toString())
 
 const getImageUrl = (fileName: string) => {
   const match = Object.entries(images).find(([path]) => path.endsWith(fileName));
   return match?.[1] ?? '';
 };
+document.addEventListener("visibilitychange",()=>{
+  console.log(`Client Status :::: ${document.visibilityState}`);
+  if(document.visibilityState == "visible"){
+      slideKey.value = Date.now().toString();
+  }
+})
 
 </script>
 
@@ -28,7 +25,7 @@ const getImageUrl = (fileName: string) => {
   <!-- Home Session -->
   <section id="Home"  class="mt_70">
     <!-- slider -->
-    <QuoteSlider />
+    <QuoteSlider :key="slideKey"/>
     <p class="title_label_bold vt323 mt_70"> Welcome to my portfolio!.</p>
     <p class="title_label_bold vt323"> Mobile & Web Developer </p>
     <p class="mt_10">
