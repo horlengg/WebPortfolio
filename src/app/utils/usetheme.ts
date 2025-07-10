@@ -39,12 +39,14 @@ export function useTheme(){
         document.body.setAttribute("class",'dark')
         _elementBindClassTheme.classList.remove(ThemeMode.LIGHT,ThemeMode.DEVICE);
         _elementBindClassTheme.classList.add(ThemeMode.DARK);
+        loadHighlightTheme(true);
     }
     const setLightTheme = ()=> {
         Storage.setTheme(ThemeMode.LIGHT)
         document.body.setAttribute("class",'')
         _elementBindClassTheme.classList.remove(ThemeMode.DARK,ThemeMode.DEVICE);
         _elementBindClassTheme.classList.add(ThemeMode.LIGHT);
+        loadHighlightTheme(false);
     }
     const setDeviceTheme = ()=> {
         Storage.setTheme(ThemeMode.DEVICE)
@@ -52,6 +54,8 @@ export function useTheme(){
         document.body.setAttribute("class",prefersDarkMode ? 'dark' : '')
         _elementBindClassTheme.classList.remove(ThemeMode.DARK,ThemeMode.LIGHT);
         _elementBindClassTheme.classList.add(ThemeMode.DEVICE);
+        loadHighlightTheme(prefersDarkMode);
+
     }
     const checkTheme = ()=>{
         if(toggleThemeCounter == 0) setDarkTheme()
@@ -85,3 +89,15 @@ export function useTheme(){
     }
     
 }
+
+function loadHighlightTheme(isDark: boolean) {
+    const href = isDark
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-dark.min.css'
+      : 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.min.css';
+  
+    const link = document.getElementById('hljs-theme') as HTMLLinkElement ?? document.createElement('link');
+    link.id = 'hljs-theme';
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  }

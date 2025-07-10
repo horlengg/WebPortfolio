@@ -2,7 +2,7 @@
 
 import { onMounted, ref } from 'vue';
 // import Home from './app/pages/home.vue';
-import BuildButtonTheme from './app/components/build_button_theme.vue';
+import FixLayoutBuilder from './app/components/fix.layout.vue';
 
 
 const appRef = ref<HTMLElement>();
@@ -24,8 +24,23 @@ onMounted(()=>{
 <template>
   
   <div class="app_container app_layout_fixed zilla-slab-regular" ref="appRef">
-    <BuildButtonTheme />
-    <RouterView />
+    <FixLayoutBuilder />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
+    <!-- <RouterView /> -->
      <!-- <Home /> -->
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

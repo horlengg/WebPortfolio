@@ -10,6 +10,7 @@ html, body {
 }
 body {
     --highlight-color : #9875d1;
+    --link-color : #478be6;
     &:not(.dark){
         --primary-text-color : #48506D;
         --layout-color : #FFFFFF;
@@ -24,7 +25,7 @@ body {
         --quote-inspiration-bg-bar : #9875d1;
 
     }
-    font-size: 16px;    
+    font-size: 18px;
     color: var(--primary-text-color);
     background-color: var(--layout-color);
     transition: background-color .3s ease-out , color .3s ease-out;
@@ -32,6 +33,7 @@ body {
         height: 100vh;
         overflow-y: scroll;
         overflow-x: hidden;
+        scroll-behavior: smooth;
         &::-webkit-scrollbar {
             display: none;
         }
@@ -41,6 +43,7 @@ body {
 pre.hljs {
     padding: 20px;
     // background: #d4d4d4;
+    transition: background-color .3s ease-out , color .3s ease-out;
     code {
         font-size: 14px;
     }

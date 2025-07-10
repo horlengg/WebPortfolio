@@ -1,8 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import "./app/styles/index.scss"
-import 'highlight.js/styles/stackoverflow-light.css';
+// import 'highlight.js/styles/stackoverflow-light.css';
 import router from "./app/route.config"
+
+// if(true){
+
+// }
 
 
 

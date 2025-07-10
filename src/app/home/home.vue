@@ -1,20 +1,23 @@
 <script setup lang="ts">
 // import { onMounted } from "vue";
-import { onMounted } from "vue";
+import { ref } from "vue";
 import LinkButton from "../components/link_btn.vue"
 import QuoteSlider from "../components/quote_slider.vue";
-import { useIntersectionObserver } from "@/utils/useIntersectionObserver";
 
+const images = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
 
+const slideKey = ref(Date.now.toString())
 
-onMounted(()=>{
-  const observer =useIntersectionObserver({
-    container : document.querySelector(".app_container")!,
-    targets : Array.from(document.querySelectorAll("[build-active-class]")!).map(e => e as HTMLElement)
-  });
-  observer.init();
+const getImageUrl = (fileName: string) => {
+  const match = Object.entries(images).find(([path]) => path.endsWith(fileName));
+  return match?.[1] ?? '';
+};
+document.addEventListener("visibilitychange",()=>{
+  console.log(`Client Status :::: ${document.visibilityState}`);
+  if(document.visibilityState == "visible"){
+      slideKey.value = Date.now().toString();
+  }
 })
-
 
 </script>
 
@@ -23,7 +26,7 @@ onMounted(()=>{
   <!-- Home Session -->
   <section id="Home"  class="mt_70">
     <!-- slider -->
-    <QuoteSlider />
+    <QuoteSlider :key="slideKey"/>
     <p class="title_label_bold vt323 mt_70"> Welcome to my portfolio!.</p>
     <p class="title_label_bold vt323"> Mobile & Web Developer </p>
     <p class="mt_10">
@@ -80,7 +83,10 @@ onMounted(()=>{
     <p class="list_title_highlight mt_20"> 🎬 Movie Web Application </p>
     <div class="mt_40 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper single_img_mode" style="background-image: url('/images/pktv_s1.png');"></div>
+        <div 
+          class="img_wrapper single_img_mode" 
+          :style="{ backgroundImage: `url(${getImageUrl('pktv_s1.png')})` }"
+        ></div>
       </div>
     </div>
     <p class="mt_20">
@@ -104,7 +110,10 @@ onMounted(()=>{
     <!-- tme_clone_02 -->
     <div class="mt_40 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper single_img_mode" style="background-image: url('/images/tme_clone_02.png');"></div>
+        <div 
+          class="img_wrapper single_img_mode"
+          :style="{ backgroundImage: `url(${getImageUrl('tme_clone_02.png')})` }"
+        ></div>
       </div>
     </div>
 
@@ -145,14 +154,20 @@ onMounted(()=>{
 
     <div class="mt_40 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/apd_team.png');"></div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('apd_team.png')})` }"
+        ></div>
         <p>
           <!-- description -->
         </p>
       </div>
       <hr class="border_only">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/fontend_unit.jpeg');"></div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('fontend_unit.jpeg')})` }"
+        ></div>
         <p>
           <!-- description -->
         </p>
@@ -173,14 +188,20 @@ onMounted(()=>{
     </ol>
     <div class="mt_40 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/mobile_team.jpeg');"></div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('mobile_team.jpeg')})` }"
+        ></div>
         <p>
           <!-- description -->
         </p>
       </div>
       <hr class="border_only">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/s4.jpg');"> </div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('s4.jpg')})` }"
+        > </div>
         <p>
           <!-- description -->
         </p>
@@ -194,7 +215,7 @@ onMounted(()=>{
 
   <section id="Education" class="mt_70">
     
-    <p class="title_label_bold vt323"> 🎓 Education & Trainning </p>
+    <p class="title_label_bold vt323"> 🎓 Education & Training </p>
     <!-- As a web developer -->
     <p class="list_title_highlight mt_10">Royal University of Phnom Penh</p>
     <p>
@@ -213,7 +234,10 @@ onMounted(()=>{
     <!--  -->
     <div class="mt_50 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper single_img_mode" style="background-image: url('/images/classmate_rupp.jpeg');"></div>
+        <div 
+          class="img_wrapper single_img_mode" 
+          :style="{ backgroundImage: `url(${getImageUrl('classmate_rupp.jpeg')})` }"
+        ></div>
       </div>
       <hr class="border_only">
       
@@ -235,7 +259,10 @@ onMounted(()=>{
     
     <div class="mt_40 demo_img">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/application_team_06.png');"></div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('application_team_06.png')})` }"
+        ></div>
         <p class="mt_20">
           <b>As Trainee at APD Bank</b>
           <br>
@@ -247,7 +274,10 @@ onMounted(()=>{
       </div>
       <hr class="border_only">
       <div class="demo_img_item">
-        <div class="img_wrapper" style="background-image: url('/images/application_team_02.png');"></div>
+        <div 
+          class="img_wrapper" 
+          :style="{ backgroundImage: `url(${getImageUrl('application_team_02.png')})` }"
+        ></div>
         <p class="mt_20">
           I recently participated in a technical training session at APD Bank led by Bong <b>Chea Rasmey</b>, our Frontend Team Leader. The main focus of the session was on essential development rules and best practices, with a particular emphasis on Git usage and team collaboration standards.
           <br>

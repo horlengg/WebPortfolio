@@ -1,71 +1,67 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import { quoteList } from '@/app/utils/useLocalData';
 
-const slides = ref<Array<{
-    img : string,
-    quote : string[]
-}>>([]);
+const slides = ref<Array<{img: string;quote: string[];}>>([]);
+
 const leftLayoutSlideRef = ref<HTMLElement>();
 let maxLeftLayoutHeight = ref(0);
 const quoteDOMkey = ref(Date.now().toString());
-const QUOTE_SLIDE_REFRESH_DURATION = 60; // 60s
-let timeCounter = 0
-let changeImageTimer:NodeJS.Timeout ;
-let refreshSlideTimer:NodeJS.Timeout ;
+let animationStartDate = Date.now();
+let startPausedAnimationDate = 0;
+let pauseAnimationTime = 0
 
-const loadQuoteList = async()=>{
-    const resp = await fetch("/db/quotes.json");
-    const data = await resp.json();
-    slides.value = data.data ?? []
-    setEventChangeImage();
-    setTimeout(()=>{
-        checkLayoutLeftHeight();
-    },100)
-}
+const animationPaused = ref(false);
 
 const currentIndex = ref(0);
-const setEventChangeImage = ()=>{
-    if(changeImageTimer) {
-        clearInterval(changeImageTimer);
-    }
-    changeImageTimer = setInterval(()=>{
-        if(currentIndex.value == slides.value.length - 1){
-            currentIndex.value = 0;
-        }else {
-            currentIndex.value++;
-        }
-        setTimeout(()=>{
-            checkLayoutLeftHeight();
-        },100)
-    },5000)
-    setTimeRefreshQuoteSlide();
-}
+
 const checkLayoutLeftHeight = ()=>{
     const layoutLeftOffsetHeight = leftLayoutSlideRef.value?.offsetHeight ?? 0;
     if(maxLeftLayoutHeight.value < layoutLeftOffsetHeight){
         maxLeftLayoutHeight.value = layoutLeftOffsetHeight;
     }
 }
-const setTimeRefreshQuoteSlide = ()=>{
-    if(refreshSlideTimer) clearInterval(refreshSlideTimer);
-    refreshSlideTimer = setInterval(()=>{
-        if(timeCounter == 0) {
-            setEventChangeImage();
-            quoteDOMkey.value = Date.now().toString();
-            currentIndex.value = 0;
-            timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-            console.log("Refresh at : "+new Date().toTimeString());
-            
-        }else {
-            timeCounter--;
-        }
-    },1000)
-}
 
 onMounted(()=>{
-    timeCounter = QUOTE_SLIDE_REFRESH_DURATION;
-    loadQuoteList();
+    slides.value = quoteList;
+    checkLayoutLeftHeight();
+    console.log("Slide loaded!. ): ");
 })
+
+
+function animationStart(){
+    animationStartDate = Date.now();
+}
+
+function animationIteration(){
+    animationStartDate = Date.now();
+    pauseAnimationTime = 0;
+    if(currentIndex.value == slides.value.length - 1){
+        currentIndex.value = 0;
+    } else currentIndex.value++;
+    checkLayoutLeftHeight();
+}
+
+function onMouseLeave(){
+    animationPaused.value = false
+    pauseAnimationTime += Date.now() - startPausedAnimationDate;
+}
+
+function onMouseOver(){
+    if(animationPaused.value) return
+    startPausedAnimationDate = Date.now();
+    const duration = Date.now() - animationStartDate - pauseAnimationTime
+    if(duration > 500 && duration < 4000){
+        animationPaused.value = true
+    }
+}
+function onTouchStart(_: TouchEvent) {
+    onMouseOver();
+}
+
+function onTouchEnd(_: TouchEvent) {
+    onMouseLeave();
+}
 
 </script>
 
@@ -73,13 +69,23 @@ onMounted(()=>{
     <div class="pf_animation_container mt_70" 
         v-if="slides.length" 
         :key="quoteDOMkey"
+        :class="{'animation_paused' : animationPaused}"
+        @mouseover="onMouseOver"
+        @mouseleave="onMouseLeave"
+        @touchstart="onTouchStart"
+        @touchend="onTouchEnd"
     >
         <div 
             class="__left" 
             ref="leftLayoutSlideRef" 
-            :style="{minHeight : `${maxLeftLayoutHeight}px`}"
+            :style="{minHeight : `${maxLeftLayoutHeight}px`,animationPlayState : animationPaused ? 'paused' : 'running'}"
         >
-            <p class="paragraph" v-html="slides[currentIndex].quote.join(' ')"></p>
+            <p 
+                class="paragraph" 
+                v-html="slides[currentIndex].quote.join(' ')"
+                @animationstart="animationStart"
+                @animationiteration="animationIteration"
+            ></p>
         </div>
         <div class="__right">
             <div class="img_bl" :style="{backgroundImage : `url('${slides[currentIndex].img}')`}"></div>
@@ -101,6 +107,9 @@ onMounted(()=>{
     gap: 20px;
     flex-direction: column-reverse;
     justify-content: center top;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
     .__left {
         flex: 1;
         .paragraph {
@@ -155,12 +164,24 @@ onMounted(()=>{
             background-color: rgb(224, 224, 224);
         }
     }
+    &.animation_paused {
+        .__left .paragraph,
+        .__right .img_bl {
+            animation-play-state: paused !important;
+            -moz-animation-play-state: paused !important;
+            -webkit-animation-play-state: paused !important;
+        }
+    }
     @keyframes __paragraphAnimatedKeyFrame {
         0% {
             opacity: 0;
             transform: translate(calc(-1 * var(--fade-distance, 0)),0);
         }
         5% {
+            opacity: 0;
+            transform: translate(calc(-1 * var(--fade-distance, 0)),0);
+        }
+        10% {
             opacity: 1;
             transform: translate(0,0);
         }
@@ -184,6 +205,10 @@ onMounted(()=>{
             transform: translate(var(--fade-distance),0);
         }
         5% {
+            opacity: 0;
+            transform: translate(var(--fade-distance),0);
+        }
+        10% {
             opacity: 1;
             transform: translate(0,0);
         }
@@ -232,6 +257,10 @@ onMounted(()=>{
                 transform: translate(0,var(--fade-distance));
             }
             5% {
+                opacity: 0;
+                transform: translate(0,var(--fade-distance));
+            }
+            10% {
                 opacity: 1;
                 transform: translate(0,0);
             }
@@ -255,6 +284,10 @@ onMounted(()=>{
                 transform: translate(0,calc(-1 * var(--fade-distance, 0)));
             }
             5% {
+                opacity: 0;
+                transform: translate(0,calc(-1 * var(--fade-distance, 0)));
+            }
+            10% {
                 opacity: 1;
                 transform: translate(0,0);
             }

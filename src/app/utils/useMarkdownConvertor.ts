@@ -1,7 +1,10 @@
 
 import MarkdownIt from "markdown-it";
 import hljs from "highlight.js"
+import markdownItAnchor from "markdown-it-anchor";
+import string from 'string';
 
+const slugify = (s:any) => string(s).slugify().toString()
 
 // full options list (defaults)
 const md = MarkdownIt({
@@ -49,6 +52,8 @@ const md = MarkdownIt({
         }
         return '<pre class="hljs"><code>' + MarkdownIt().utils.escapeHtml(str) + '</code></pre>';
       }
+}).use(markdownItAnchor,{
+  slugify
 });
 
 export function converMdToHTML(str : string){

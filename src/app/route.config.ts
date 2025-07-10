@@ -1,17 +1,27 @@
-import {createRouter,createWebHistory} from "vue-router"
+import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
-    history : createWebHistory(),
-    routes : [
+  history: createWebHistory(),
+  routes: [
+    {
+      path: '/',
+      component: () => import('./home/home.vue'),
+    },
+    {
+      path: '/blogs',
+      component: () => import('./blogs/blogs.vue'),
+      children: [
         {
-            path : '/',
-            component : ()=> import("./pages/home.vue")
+          path: '',
+          component: () => import('./blogs/blog.list.vue'), 
         },
         {
-            path : '/blogs',
-            component : ()=> import("./pages/blogs.vue")
+          path: ':title',
+          component: () => import('./blogs/blog.content.vue'), 
         },
-    ]
+      ],
+    },
+  ],
 });
 
-export default router
+export default router;
