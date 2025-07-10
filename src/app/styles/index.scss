@@ -16,6 +16,7 @@ body {
         --layout-color : #FFFFFF;
         --quote-inspiration-bg : rgb(244, 241, 241);
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
+        --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
 
     }
     &.dark {
@@ -23,6 +24,7 @@ body {
         --primary-text-color : #e2e4ec;
         --quote-inspiration-bg : #493d57;
         --quote-inspiration-bg-bar : #9875d1;
+        --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
 
     }
     font-size: 18px;

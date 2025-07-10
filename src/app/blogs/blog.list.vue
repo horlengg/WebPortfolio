@@ -8,9 +8,12 @@ import BlogService from './blog.service';
 
 
 const blogList = ref<Array<ArticleType>>([])
+const fetchArticleLoading = ref(false)
 
 async function fetchArticles(){
+    fetchArticleLoading.value = true;
     blogList.value = await BlogService.getArticles();
+    fetchArticleLoading.value = false;
 }
 
 onMounted(fetchArticles);
@@ -39,6 +42,14 @@ onMounted(fetchArticles);
                 </div>
             </div>
         </RouterLink>
+        <template v-if="fetchArticleLoading">
+            <div class="blog_item_loading"></div>
+            <div class="blog_item_loading"></div>
+            <div class="blog_item_loading"></div>
+            <div class="blog_item_loading"></div>
+            <div class="blog_item_loading"></div>
+            <div class="blog_item_loading"></div>
+        </template>
        
     </div>
 
@@ -90,6 +101,12 @@ onMounted(fetchArticles);
             }
         }
     }
+    .blog_item_loading {
+        background: var(--skelaton-loading-color);
+        background-size: 400%;
+        animation: shimmer 1.5s infinite linear;
+        height: 280px;
+    }
 }
 
 
@@ -98,6 +115,9 @@ onMounted(fetchArticles);
     .blog_list {
         grid-template-columns: 1fr 1fr;
         .blog_item_wrapper .blog_item .blog_item_thumnail {
+            height: 240px;
+        }
+        .blog_item_loading {
             height: 240px;
         }
     }
@@ -110,7 +130,19 @@ onMounted(fetchArticles);
         .blog_item_wrapper .blog_item .blog_item_thumnail {
             height: 200px;
         }
+        .blog_item_loading {
+            height: 200px;
+        }
     }
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0 0;
+	}
 }
 
 </style>
