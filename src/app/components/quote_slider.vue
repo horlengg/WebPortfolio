@@ -114,6 +114,7 @@ function onTouchEnd(_: TouchEvent) {
         flex: 1;
         .paragraph {
             animation: __paragraphAnimatedKeyFrame 5s linear infinite;
+            font-size: 16px;
             .inspiration {
                 position: relative;
                 display: inline-block;
