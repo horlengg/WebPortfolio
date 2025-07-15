@@ -27,7 +27,7 @@ body {
         --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
 
     }
-    font-size: 18px;
+    font-size: 16px;
     color: var(--primary-text-color);
     background-color: var(--layout-color);
     transition: background-color .3s ease-out , color .3s ease-out;
@@ -50,10 +50,21 @@ pre.hljs {
         font-size: 14px;
     }
 }
+.animation_target_el {
+    transition: background-color .3s ease-out , color .3s ease-out,opacity .3s ease-out,transform .3s ease-out !important;
+    &:not(.is_activated){
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    &.is_activated {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 .border_only {
     border-top: 1px solid  var(--primary-text-color);
-    opacity: .5;
+    opacity: .3;
 }
 .project_demo_link {
     color: var(--highlight-color);
@@ -95,7 +106,7 @@ pre.hljs {
     .footer_content {
         display: flex;
         justify-content: center;
-        margin: 100px 0;
+        margin: 100px 0 200px 0;
         color: var(--highlight-color);
     }
     .demo_img {
@@ -181,7 +192,7 @@ pre.hljs {
 .__fadeInUp_element {
     opacity: 0;
     transform: translateY(100px);
-    transition: opacity .3s ease , transform .2s ease-out;
+    transition: background-color .3s ease-out , color .3s ease-out,opacity .3s ease-out,transform .3s ease-out;
 }
 .__fadeInUp_element.__fadeInUp_element_active {
     opacity: 1;

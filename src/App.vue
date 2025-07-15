@@ -23,10 +23,12 @@ onMounted(()=>{
 
 <template>
   
-  <div class="app_container app_layout_fixed zilla-slab-regular" ref="appRef">
+  <div id="app_root" class="app_container app_layout_fixed zilla-slab-regular" ref="appRef">
     <FixLayoutBuilder />
     <transition name="fade" mode="out-in">
-      <router-view />
+      <div class="transition_item"  :key="$route.fullPath">
+        <router-view />
+      </div>
     </transition>
     <!-- <RouterView /> -->
      <!-- <Home /> -->
