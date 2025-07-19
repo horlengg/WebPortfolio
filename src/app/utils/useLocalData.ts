@@ -9,7 +9,7 @@ const quoteList = [
         
     },
     {
-        "img" : new URL('@/app/assets/images/wl_02.jpg', import.meta.url).href,
+        "img" : new URL('@/app/assets/images/wl.jpg', import.meta.url).href,
         "quote" : [
             "It doesn't matter if you don't have talent; the only thing you need is to overcome laziness.",
             "<br><span class='inspiration'>“You don’t need talent to succeed — just the discipline to show up when it’s hard.“</span>",
@@ -26,6 +26,24 @@ const quoteList = [
     // },
 ]
 
+const serviceList = [
+    {
+        title : "Mobile App Development",
+        thumnail : new URL('@/app/assets/images/mobile_app.png', import.meta.url).href,
+        description : `
+            I specialize in building high-performance, cross-platform mobile applications using Flutter and native technologies like Swift (iOS). My apps are designed to be fast, responsive, and user-friendly, with clean architecture and maintainable codebases.
+        `
+    },
+    {
+        title : "Web Application Development",
+        thumnail : new URL('@/app/assets/images/web_app.jpg', import.meta.url).href,
+        description : `
+            I build modern, scalable, and responsive web applications tailored to meet user needs and business goals. From dynamic frontends to robust backends, I deliver full-stack web solutions using Vue.js, React, and Node.js.
+        `
+    },
+]
+
 export {
-    quoteList
+    quoteList,
+    serviceList
 }

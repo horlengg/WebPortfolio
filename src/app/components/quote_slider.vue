@@ -156,7 +156,7 @@ function onTouchEnd(_: TouchEvent) {
 
         .img_bl {
             width: var(--layout-width);
-            height: 200px;
+            height: 240px;
             // background-image: url("/src/app/assets/images/wl.webp");
             background-position: center;
             background-size: cover;

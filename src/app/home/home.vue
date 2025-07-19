@@ -4,6 +4,7 @@ import { onBeforeUnmount, onMounted, ref } from "vue";
 import LinkButton from "../components/link_btn.vue"
 import QuoteSlider from "../components/quote_slider.vue";
 import { useScrollAnimation } from "@horleng/scroll-animation.js";
+import DevService from "../components/dev.service.vue";
 
 const images = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
 
@@ -100,6 +101,9 @@ onBeforeUnmount(()=>{
     </div>
 
   </section>
+
+  <!-- service section -->
+  <dev-service />
 
 
   <!-- Projects -->
