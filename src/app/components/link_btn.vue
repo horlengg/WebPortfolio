@@ -12,7 +12,7 @@ defineProps<{
 
 <template>
   <a :href="link" target="_blank">
-    <img :src="icon" alt="icon" height="20" width="20">
+    <img :src="icon" alt="icon" :height="icon.includes('fb') ? 25 : 20" :width="icon.includes('fb') ? 25 : 20">
     <span>
       {{ label }}
     </span>
@@ -23,16 +23,15 @@ defineProps<{
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #FFF;
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 3px 10px;
   border: 1px solid var(--highlight-color);
   transition: color .3s ease;
-  &:hover {
-    color: var(--highlight-color);
-  }
+  background-color: var(--highlight-color);
+  border-radius: 8.0px;
 }
 
 

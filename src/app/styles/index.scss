@@ -98,7 +98,8 @@ pre.hljs {
     .contact_list {
         display: flex;
         align-items: center;
-        gap: 10px;
+        row-gap: 20px;
+        column-gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
     }
