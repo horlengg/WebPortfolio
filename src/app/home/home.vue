@@ -201,7 +201,7 @@ onBeforeUnmount(()=>{
       <div class="demo_img_item animation_target_el">
         <div 
           class="img_wrapper" 
-          :style="{ backgroundImage: `url(${getImageUrl('fontend_unit.jpeg')})` }"
+          :style="{ backgroundImage: `url(${getImageUrl('apd-team-party.jpeg')})` }"
         ></div>
         <p>
           <!-- description -->
