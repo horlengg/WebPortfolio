@@ -2,11 +2,16 @@
     {
         "title" : "10 Javascript array method useful for development",
         "createdAt" : "Jul 05,2025",
-        "thumnail" : "https://bairesdev.mo.cloudinary.net/blog/2023/08/What-Is-JavaScript-Used-For.jpg?tx=w_1920,q_auto"    
+        "thumnail" : "https://res.cloudinary.com/decme1qrv/image/upload/v1754638562/horleng/What-Is-JavaScript-Used-For_o3oykm.avif"    
     },
     {
         "title" : "How to write clean code in Dart 2025",
         "createdAt" : "Jul 10,2025",
-        "thumnail" : "https://swansoftwaresolutions.com/wp-content/uploads/2020/02/08.20.20-What-is-Dart-and-how-is-it-used-1.jpg" 
+        "thumnail" : "https://res.cloudinary.com/decme1qrv/image/upload/v1754638558/horleng/08.20.20-What-is-Dart-and-how-is-it-used-1_cezral.jpg" 
+    },
+    {
+        "title" : "Implement Liveness Detection With Flutter",
+        "createdAt" : "Agu 08,2025",
+        "thumnail" : "https://res.cloudinary.com/decme1qrv/image/upload/v1754636341/horleng/liveness-detection-software_uvune9.jpg" 
     }
 ]

@@ -43,6 +43,7 @@ body {
 }
 
 pre.hljs {
+    overflow-x: auto;
     padding: 20px;
     // background: #d4d4d4;
     transition: background-color .3s ease-out , color .3s ease-out;
