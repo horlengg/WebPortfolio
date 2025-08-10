@@ -27,7 +27,7 @@ watch(content, async (newContent) => {
     const id = hash.substring(1); // remove '#'
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: 'smooth'});
     }
   }
 });
@@ -35,7 +35,7 @@ watch(content, async (newContent) => {
 </script>
 
 <template>
-  <div v-html="content"></div> <!-- Render HTML safely -->
+  <div v-html="content" class="blog_content"></div> <!-- Render HTML safely -->
 </template>
 
 <style lang="scss">
@@ -47,12 +47,17 @@ ul {
 a {
   color: var(--link-color);
 }
-</style>
-<style lang="scss">
 ul {
   margin-left: 20px;
 }
 a {
   color: var(--link-color);
+}
+.blog_content {
+  img {
+    object-fit: contain !important;
+    max-width: 100%;
+    max-height: 400px;
+  }
 }
 </style>
