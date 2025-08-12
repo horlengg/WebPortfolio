@@ -24,4 +24,11 @@ const router = createRouter({
   ],
 });
 
+router.beforeEach((to,_,next)=>{
+  const lastPath = to.path.split('/').pop() ?? ''
+  const title = lastPath.split('-').join(' ')
+  document.title = title ? title : 'Leng ツ'
+  next();
+})
+
 export default router;
