@@ -8,15 +8,16 @@ import FixLayoutBuilder from './app/components/fix.layout.vue';
 const appRef = ref<HTMLElement>();
 
 
-document.documentElement.addEventListener('resize',()=>{
-  const w = appRef.value?.offsetWidth;
-  if(!w) return ;
-  document.documentElement.style.setProperty("--layout-width",`${w}px`);
+window.addEventListener('resize',()=>{
+  const layoutSize = (appRef.value?.offsetWidth ?? 0) - ((window.innerWidth > 600 && window.innerWidth < 768) ? 100 : 40);
+  document.documentElement.style.setProperty("--slide-img-width",`${layoutSize}px`);
+  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .6)}px`);
 })
 
 onMounted(()=>{
-  const w = appRef.value?.offsetWidth;
-  document.documentElement.style.setProperty("--layout-width",`${w}px`);
+  const layoutSize = (appRef.value?.offsetWidth ?? 0) - ((window.innerWidth > 600 && window.innerWidth < 768) ? 100 : 40);
+  document.documentElement.style.setProperty("--slide-img-width",`${layoutSize}px`);
+  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .6)}px`);
 })
 
 </script>

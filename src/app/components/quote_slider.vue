@@ -153,14 +153,13 @@ function onTouchEnd(_: TouchEvent) {
         display: flex;
         justify-content: center;
         align-items: center;
-
         .img_bl {
-            width: var(--layout-width);
-            height: 240px;
+            width: var(--slide-img-width);
+            height: var(--slide-img-height);
             // background-image: url("/src/app/assets/images/wl.webp");
             background-position: center;
             background-size: cover;
-            border-radius: 10px;
+            border-radius: 20px;
             animation: __imgAnimatedKeyFrame 5s linear infinite;
             background-color: rgb(224, 224, 224);
         }
@@ -228,28 +227,14 @@ function onTouchEnd(_: TouchEvent) {
     }
 
 }
-/* Phone Large Screen */
-@media (min-width: 450px) {
-    .pf_animation_container {
-        .__right {
-            .img_bl {
-                height: 300px;
-            }
-        }
-    }
-}
 
-
-
-/* Tablet and up */
 @media (min-width: 768px) {
     .pf_animation_container {
         flex-direction: row;
         .__right {
             .img_bl {
                 width: 300px;
-                height: 250px;
-                border-radius: 20px;
+                height: 200px;
             }
         }
         @keyframes __paragraphAnimatedKeyFrame {

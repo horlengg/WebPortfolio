@@ -12,26 +12,38 @@ defineProps<{
 
 <template>
   <a :href="link" target="_blank">
-    <img :src="icon" alt="icon" :height="icon.includes('fb') ? 25 : 20" :width="icon.includes('fb') ? 25 : 20">
-    <span>
-      {{ label }}
-    </span>
+    <button class="contact_button">
+      <img :src="icon" alt="icon" class="icon_img" :class="label">
+    </button>
   </a>
 </template>
 
 <style lang="scss" scoped>
 
+body {
+  --btn-contact-color : rgb(221, 219, 219);
+}
+
 a {
   text-decoration: none;
-  color: #FFF;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 3px 10px;
-  border: 1px solid var(--highlight-color);
-  transition: color .3s ease;
-  background-color: var(--highlight-color);
-  border-radius: 8.0px;
+  .contact_button {
+    background-color: var(--btn-contact-color); 
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    .icon_img {
+      &:not(.facebook) {
+        width: 25px;
+        height: 25px;
+      }
+      &.facebook {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
 }
 
 

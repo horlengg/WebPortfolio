@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 html, body {
-    overflow : hidden;
+    // overflow : hidden;
 }
 body {
     --highlight-color : #9875d1;
@@ -17,7 +17,7 @@ body {
         --quote-inspiration-bg : rgb(244, 241, 241);
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
-
+        --btn-contact-color : rgb(221, 219, 219);
     }
     &.dark {
         --layout-color : #242424;// #413C46;
@@ -25,7 +25,7 @@ body {
         --quote-inspiration-bg : #493d57;
         --quote-inspiration-bg-bar : #9875d1;
         --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
-
+        --btn-contact-color : rgb(61, 61, 61);
     }
     font-size: 16px;
     color: var(--primary-text-color);
@@ -34,7 +34,7 @@ body {
     .app_container {
         height: 100vh;
         overflow-y: scroll;
-        overflow-x: hidden;
+        overflow-x: visible;
         scroll-behavior: smooth;
         &::-webkit-scrollbar {
             display: none;
@@ -75,10 +75,10 @@ pre.hljs {
     margin-left: 20px;
 }
 .app_layout_fixed {
-    width: 90vw;
+    padding: 0 50px;
     max-width: 1024px;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 20px;
     .app_header {
         .bl_profile {
             display: flex;
@@ -99,7 +99,7 @@ pre.hljs {
     .contact_list {
         display: flex;
         align-items: center;
-        row-gap: 20px;
+        row-gap: 30px;
         column-gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
@@ -142,6 +142,12 @@ pre.hljs {
     }
 }
 
+/* Tablet and up */
+@media (min-width: 600px) {
+    .app_layout_fixed {
+        padding: 20px 50px;
+    }
+}
 
 
 
@@ -149,6 +155,7 @@ pre.hljs {
 @media (min-width: 768px) {
     .app_layout_fixed {
         width: 90vw !important;
+        padding: 20px;
         .demo_img {
             flex-direction: row !important;
             hr {
