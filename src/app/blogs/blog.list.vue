@@ -33,10 +33,8 @@ onMounted(fetchArticles);
                 <p class="title" > {{ blog.title }} </p>
                 <div class="blog_info">
                     <div class="pf_cv">
-                        <img src="../assets//images/dev.png" alt="" width="25">
-                        <p>
-                            Ly Horleng
-                        </p>
+                        <img src="../assets//images/leng_circle.png" alt="" width="25">
+                        <p>Ly Horleng</p>
                     </div>
                     <p class="font-default write_dt">{{ blog.createdAt }}</p>
                 </div>
