@@ -363,7 +363,7 @@ onBeforeUnmount(()=>{
     </div>
 
     <div class="contact_list mt_70 animation_target_el" id="contact_me">
-      <LinkButton icon="/icons/call_icon.svg" label="linkedIn" link="tel:+8859640983197"/>
+      <LinkButton icon="/icons/call_icon.svg" label="linkedIn" link="tel:+885964083197"/>
       <LinkButton icon="/icons/linkin.svg" label="linkedIn" link="https://www.linkedin.com/in/ly-horleng-47b05932b"/>
       <LinkButton icon="/icons/mail-ios.svg" label="email" link="mailto:horleng123@gmail.com"/>
       <LinkButton icon="/icons/telegram.svg" label="telegram" link="https://t.me/lengzunzhe"/>
