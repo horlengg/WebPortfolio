@@ -5,9 +5,11 @@ import LinkButton from "../components/link_btn.vue"
 import QuoteSlider from "../components/quote_slider.vue";
 import { useScrollAnimation } from "@horleng/scroll-animation.js";
 import DevService from "../components/dev.service.vue";
+import { useRoute } from "vue-router";
 
 const images = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
 
+const route = useRoute();
 const slideKey = ref(Date.now.toString())
 const animated = useScrollAnimation({
     rootViewMargin : 150,
@@ -32,6 +34,14 @@ onMounted(()=>{
     root : root,
     targets : targets
   });
+  
+  setTimeout(()=>{
+    if(route.hash == '#contact_me'){
+      const contactSectionElement = document.getElementById('contact_me');
+      contactSectionElement?.scrollIntoView({ behavior: "smooth" });
+    }
+  },1000)
+
 })
 
 onBeforeUnmount(()=>{
@@ -352,7 +362,7 @@ onBeforeUnmount(()=>{
       </p>
     </div>
 
-    <div class="contact_list mt_70 animation_target_el">
+    <div class="contact_list mt_70 animation_target_el" id="contact_me">
       <LinkButton icon="/icons/call_icon.svg" label="linkedIn" link="tel:+8859640983197"/>
       <LinkButton icon="/icons/linkin.svg" label="linkedIn" link="https://www.linkedin.com/in/ly-horleng-47b05932b"/>
       <LinkButton icon="/icons/mail-ios.svg" label="email" link="mailto:horleng123@gmail.com"/>
