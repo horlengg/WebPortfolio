@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 html, body {
-    // overflow : hidden;
+    overflow : hidden;
 }
 body {
     --highlight-color : #9875d1;
@@ -34,7 +34,7 @@ body {
     .app_container {
         height: 100vh;
         overflow-y: scroll;
-        overflow-x: visible;
+        overflow-x: hidden;
         scroll-behavior: smooth;
         &::-webkit-scrollbar {
             display: none;
