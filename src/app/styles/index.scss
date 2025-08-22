@@ -13,14 +13,14 @@ body {
     --link-color : #478be6;
     &:not(.dark){
         --primary-text-color : #48506D;
-        --layout-color : #FFFFFF;
+        --layout-color : 255, 255, 255;
         --quote-inspiration-bg : rgb(244, 241, 241);
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
         --btn-contact-color : rgb(221, 219, 219);
     }
     &.dark {
-        --layout-color : #242424;// #413C46;
+        --layout-color : 36, 36, 36;// #413C46;
         --primary-text-color : #e2e4ec;
         --quote-inspiration-bg : #493d57;
         --quote-inspiration-bg-bar : #9875d1;
@@ -29,7 +29,7 @@ body {
     }
     font-size: 16px;
     color: var(--primary-text-color);
-    background-color: var(--layout-color);
+    background-color: rgba(var(--layout-color), 1);
     transition: background-color .3s ease-out , color .3s ease-out;
     .app_container {
         height: 100vh;

@@ -6,6 +6,7 @@ import QuoteSlider from "../components/quote_slider.vue";
 import { useScrollAnimation } from "@horleng/scroll-animation.js";
 import DevService from "../components/dev.service.vue";
 import { useRoute } from "vue-router";
+import SkillSection from "./skill_section.vue";
 
 const images = import.meta.glob('../assets/images/*', { eager: true, import: 'default' });
 
@@ -75,42 +76,7 @@ onBeforeUnmount(()=>{
   
   <!-- Skill Session -->
 
-  <section id="Skills" class="mt_70">
-
-    <p class="title_label_bold vt323 animation_target_el">🛠️ Skills & Tech Stack </p>
-    <!-- Frontend Dev -->
-    <div class="animation_target_el">
-      <p class="list_title_highlight mt_20"> Frontend Development </p>
-      <p class="">
-        Typescript • Javascript • Vue • React • CSS • HTML • Tailwind CSS • SASS • Electron
-      </p>
-    </div>
-    <!-- Mobile Dev-->
-    <div class="animation_target_el">
-      <p class="list_title_highlight mt_10 "> Mobile Development </p>
-      <p class=""> Flutter </p>
-    </div>
-    <div class="animation_target_el">
-      <!-- Backend & Database -->
-      <p class="list_title_highlight mt_10 ">
-        Backend & Database
-      </p>
-      <p class="">
-        Node.js • Express.js • Nest.js • MongoDB • PostgresSql • Java • Spring Boot • Python • Flask & Django(basic)
-      </p>
-    </div> 
-
-    <!-- Dev Tools & Others -->
-    <div class="animation_target_el">
-      <p class="list_title_highlight mt_10">
-        Dev Tools & Others
-      </p>
-      <p class="">
-        Git • GitHub • VSCode • Postman • Figma • Docker(basic)
-      </p>
-    </div>
-
-  </section>
+  <skill-section />
 
   <!-- service section -->
   <dev-service />
@@ -364,7 +330,7 @@ onBeforeUnmount(()=>{
 
     <div class="contact_list mt_70 animation_target_el" id="contact_me">
       <LinkButton icon="/icons/call_icon.svg" label="linkedIn" link="tel:+885964083197"/>
-      <LinkButton icon="/icons/linkin.svg" label="linkedIn" link="https://www.linkedin.com/in/ly-horleng-47b05932b"/>
+      <LinkButton icon="/icons/linkin.svg" label="linkedIn" link="https://www.linkedin.com/in/horleng/"/>
       <LinkButton icon="/icons/mail-ios.svg" label="email" link="mailto:horleng123@gmail.com"/>
       <LinkButton icon="/icons/telegram.svg" label="telegram" link="https://t.me/lengzunzhe"/>
       <LinkButton icon="/icons/fb.svg" label="facebook" link="https://web.facebook.com/horlengg"/>
