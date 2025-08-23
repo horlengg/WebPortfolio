@@ -6,7 +6,7 @@ import { serviceList } from '../utils/useLocalData';
 
 <template>
     <section class="mt_70">
-        <p class="title_label_bold vt323 animation_target_el">🚀 Services</p>
+        <p class="title_label_bold vt323 animation_target_el">Services</p>
         <div class="service_wrapper mt_40">
             <div class="service_item animation_target_el" v-for="serviceItem of serviceList">
                 <div class="service_item_photo">
@@ -17,10 +17,8 @@ import { serviceList } from '../utils/useLocalData';
                     </div>
                 </div>
                 <div class="service_item_info">
-                    <h3>{{ serviceItem.title }}</h3>
-                    <p>
-                        {{ serviceItem.description }}
-                    </p>
+                    <h3 style="font-style: italic;">{{ serviceItem.title }}</h3>
+                    <p style="font-style: italic;">{{ serviceItem.description }}</p>
                 </div>
             </div>
         </div>

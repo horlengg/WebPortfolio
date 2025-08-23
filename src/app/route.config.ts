@@ -13,11 +13,11 @@ const router = createRouter({
       children: [
         {
           path: '',
-          component: () => import('./blogs/blog.list.vue'), 
+          component: () => import('./blogs/blog-list.vue'), 
         },
         {
           path: ':title',
-          component: () => import('./blogs/blog.content.vue'), 
+          component: () => import('./blogs/blog-post.vue'), 
         },
       ],
     },

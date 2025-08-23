@@ -47,7 +47,7 @@ ul {
 a {
   color: var(--link-color);
 }
-ul {
+ul,ol {
   margin-left: 20px;
 }
 a {

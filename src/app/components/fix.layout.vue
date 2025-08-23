@@ -58,7 +58,7 @@ onMounted(()=>{
             <button @click="handleClickButtonNavigator">
                 <div class="btn_navigator" :class="{'is_home':route.path == '/'}">
                     <img 
-                        src="../assets/images/blog.png" 
+                        src="/images/blog.png" 
                         alt="logo" 
                         width="28"
                     >

@@ -33,8 +33,14 @@ onMounted(fetchArticles);
                 <p class="title" > {{ blog.title }} </p>
                 <div class="blog_info">
                     <div class="pf_cv">
-                        <img src="../assets//images/leng_circle.png" alt="" width="25">
-                        <p>Ly Horleng</p>
+                        <img src="/images/leng_circle.png" alt="" width="25">
+                        <p>
+                            Ly Horleng
+                            <br>
+                            <span style="opacity: .5;">
+                                Mobile Developer
+                            </span>
+                        </p>
                     </div>
                     <p class="font-default write_dt">{{ blog.createdAt }}</p>
                 </div>
@@ -83,6 +89,7 @@ onMounted(fetchArticles);
                 .write_dt {
                     font-size: 12px;
                     opacity: .8;
+                    color: var(--blog-date-release-color);
                 }
                 .pf_cv {
                     display: flex;

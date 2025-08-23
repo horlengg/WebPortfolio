@@ -18,6 +18,7 @@ body {
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
         --btn-contact-color : rgb(221, 219, 219);
+        --blog-date-release-color : #9875d1;
     }
     &.dark {
         --layout-color : 36, 36, 36;// #413C46;
@@ -26,6 +27,7 @@ body {
         --quote-inspiration-bg-bar : #9875d1;
         --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
         --btn-contact-color : rgb(61, 61, 61);
+        --blog-date-release-color : rgb(253 224 71);
     }
     font-size: 16px;
     color: var(--primary-text-color);
@@ -69,11 +71,9 @@ pre.hljs {
 }
 .project_demo_link {
     color: var(--highlight-color);
+    display: inline-block;
 }
-.experience_list {
-    list-style-type: disc;
-    margin-left: 20px;
-}
+
 .app_layout_fixed {
     padding: 0 50px;
     max-width: 1024px;
@@ -184,6 +184,10 @@ pre.hljs {
         }
     } 
     
+}
+
+.highlight_special_text {
+    color: rgb(253 224 71);
 }
 
 

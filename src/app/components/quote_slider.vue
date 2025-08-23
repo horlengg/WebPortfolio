@@ -115,6 +115,10 @@ function onTouchEnd(_: TouchEvent) {
         .paragraph {
             animation: __paragraphAnimatedKeyFrame 5s linear infinite;
             font-size: 16px;
+            &,
+            & * {
+                font-style: italic;
+            }
             .inspiration {
                 position: relative;
                 display: inline-block;
@@ -305,9 +309,6 @@ function onTouchEnd(_: TouchEvent) {
                 border-radius: 30px;
             }
         }
-    }
-    .experience_list {
-        padding-left: 30px;
     }
 }
 
