@@ -3,6 +3,7 @@
 import { onMounted, ref } from 'vue';
 // import Home from './app/pages/home.vue';
 import FixLayoutBuilder from './app/components/fix.layout.vue';
+import { Analytics } from '@vercel/analytics/vue';
 
 
 const appRef = ref<HTMLElement>();
@@ -33,6 +34,7 @@ onMounted(()=>{
     </transition>
     <!-- <RouterView /> -->
      <!-- <Home /> -->
+    <Analytics />
   </div>
 </template>
 
