@@ -5,7 +5,6 @@ import { onMounted, ref, watch } from 'vue';
 import FixLayoutBuilder from './app/components/fix.layout.vue';
 import { useRoute } from 'vue-router';
 import sendClientViewWebsite from './app/api/api';
-import { BASE_API_URL } from './app/app.config';
 // import { Analytics } from '@vercel/analytics/vue';
 
 
