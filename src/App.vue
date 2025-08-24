@@ -5,6 +5,7 @@ import { onMounted, ref, watch } from 'vue';
 import FixLayoutBuilder from './app/components/fix.layout.vue';
 import { useRoute } from 'vue-router';
 import sendClientViewWebsite from './app/api/api';
+import { BASE_API_URL } from './app/app.config';
 // import { Analytics } from '@vercel/analytics/vue';
 
 
@@ -26,7 +27,10 @@ onMounted(()=>{
     sendClientViewWebsite(location.href)
   },5000)
   window.addEventListener("beforeunload", () => {
-    clientRouteTrackingList.join(" \n ")
+    if (clientRouteTrackingList.length) {
+      const payload = JSON.stringify({ url : clientRouteTrackingList.join(" \n ") })
+      navigator.sendBeacon(`${BASE_API_URL}/api/view`, payload)
+    }
   })
 })
 
