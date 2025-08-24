@@ -12,6 +12,7 @@ export default function sendClientViewWebsite(url:string){
         },
         body : JSON.stringify({
             url
-        })
+        }),
+        keepalive: true
     })
 }

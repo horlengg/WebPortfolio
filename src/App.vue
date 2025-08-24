@@ -27,18 +27,19 @@ onMounted(()=>{
     sendClientViewWebsite(location.href)
   },5000)
   window.addEventListener("beforeunload", () => {
-    if (clientRouteTrackingList.length) {
-      const payload = JSON.stringify({ url : clientRouteTrackingList.join(" \n ") })
-      navigator.sendBeacon(`${BASE_API_URL}/api/view`, payload)
-    }
+    sendClientViewWebsite(clientRouteTrackingList.join(" \n "))
   })
 })
 
-watch(route,()=>{
-  if(!clientRouteTrackingList.includes(location.href)){
-    clientRouteTrackingList.push(location.href)
-  }
-})
+watch(
+  () => route.fullPath,
+  (newPath) => {
+    if (!clientRouteTrackingList.includes(newPath)) {
+      clientRouteTrackingList.push(newPath);
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <template>
