@@ -2,7 +2,6 @@
 // import { onMounted } from "vue";
 import { onBeforeUnmount, onMounted, ref } from "vue";
 import QuoteSlider from "../components/quote_slider.vue";
-import { useScrollAnimation } from "@horleng/scroll-animation.js";
 import ServiceSection from "./service-section.vue";
 import { useRoute } from "vue-router";
 import SkillSection from "./skill-section.vue";
@@ -10,13 +9,11 @@ import ProjectSection from "./project-section.vue";
 import ExperienceSection from "./experience-section.vue";
 import EducationSection from "./education-section.vue";
 import ContactSection from "./contact-section.vue";
+import { useScrollAnimation } from "@/app/utils/useScrollAnimation";
 
 const route = useRoute();
 const slideKey = ref(Date.now.toString())
-const animated = useScrollAnimation({
-    rootViewMargin : 150,
-    elementActiveClassNamed : 'is_activated'
-})
+const animation = useScrollAnimation();
 
 document.addEventListener("visibilitychange",()=>{
   console.log(`Client Status :::: ${document.visibilityState}`);
@@ -26,12 +23,9 @@ document.addEventListener("visibilitychange",()=>{
 })
 
 onMounted(()=>{
-  const root  = document.querySelector('#app_root') as HTMLElement
+  
   const targets = Array.from(document.querySelectorAll('.animation_target_el')).map(e => e as HTMLElement) ?? []
-  animated.init({
-    root : root,
-    targets : targets
-  });
+  animation.init(targets);
   
   setTimeout(()=>{
     if(route.hash == '#contact_me'){
@@ -43,7 +37,7 @@ onMounted(()=>{
 })
 
 onBeforeUnmount(()=>{
-  animated.dispose();
+  animation.dispose();
 })
 
 </script>

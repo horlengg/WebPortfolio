@@ -17,7 +17,7 @@ body {
         --quote-inspiration-bg : rgb(244, 241, 241);
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
-        --btn-contact-color : rgb(221, 219, 219);
+        // --btn-contact-color : rgb(255, 255, 255);
         --blog-date-release-color : #9875d1;
     }
     &.dark {
@@ -26,7 +26,7 @@ body {
         --quote-inspiration-bg : #493d57;
         --quote-inspiration-bg-bar : #9875d1;
         --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
-        --btn-contact-color : rgb(61, 61, 61);
+        // --btn-contact-color : rgb(61, 61, 61);
         --blog-date-release-color : rgb(253 224 71);
     }
     font-size: 16px;
@@ -99,7 +99,7 @@ pre.hljs {
     .contact_list {
         display: flex;
         align-items: center;
-        row-gap: 30px;
+        row-gap: 40px;
         column-gap: 10px;
         flex-wrap: wrap;
         justify-content: center;

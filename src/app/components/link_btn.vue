@@ -20,31 +20,44 @@ defineProps<{
 
 <style lang="scss" scoped>
 
-body {
-  --btn-contact-color : rgb(221, 219, 219);
-}
-
 a {
   text-decoration: none;
   .contact_button {
-    background-color: var(--btn-contact-color); 
     width: 45px;
     height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    $border: 1px;
+    color: #FFF;
+    background-color: rgb(var(--layout-color));
+    background-clip: padding-box; /* !importanté */
+    border: solid $border transparent; /* !importanté */
     border-radius: 12px;
-    border: none;
+    transition: background-color .3s ease-out , color .3s ease-out;
     cursor: pointer;
     .icon_img {
       &:not(.facebook) {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
       }
       &.facebook {
-        width: 32px;
-        height: 32px;
+        width: 27px;
+        height: 27px;
       }
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      z-index: -1;
+      margin: -$border; /* !importanté */
+      border-radius: inherit; /* !importanté */
+      background: linear-gradient(to bottom,#9875d1,rgb(253 224 71));
     }
   }
 }
-
 
 </style>

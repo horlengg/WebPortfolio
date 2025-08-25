@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import BorderLeftLayout from '../components/border-left-layout.vue';
+// import BorderLeftLayout from '../components/border-left-layout.vue';
 </script>
 
 <template>
     <section id="project" class="mt_70" >
         <p class="title_label_bold vt323 animation_target_el">Projects</p>
         <!-- Movie Web Application  -->
-        <div class="animation_target_el">
-            <p class="highlight_special_text list_title_highlight mt_40">Movie Web Application </p>
-            <BorderLeftLayout class="mt_10">
-                <p>
+        <div class="project_layout_wrapper">
+            <div class="project_demo_info animation_target_el">
+                <p class="highlight_special_text list_title_highlight mt_40">Movie Web Application </p>
+                <p class="mt_10">
                     Piphubkun TV is a dedicated streaming platform for fans of Donghua, with a special focus on 3D Chinese animation. The website delivers an immersive experience by curating a wide range of series and movies, paired with rich content such as synopses, character profiles, and behind-the-scenes details.
                 </p>
                 <p class="mt_10">
@@ -25,14 +25,20 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
                 <a href="https://piphubkun-tv.vercel.app/" target="_blank" class="project_demo_link mt_20">
                     Live Demo
                 </a>
-            </BorderLeftLayout>
+            </div>
+            <div class="project_img_demo_wr animation_target_el">
+                <div class="project_img_demo " style="background-image: url('/images/pktv.png');"></div>
+                <a href="https://piphubkun-tv.vercel.app/" target="_blank" class="project_demo_link mt_20">
+                    Live Demo
+                </a>
+            </div>
         </div>
 
         <!-- Telegram Web UI Clone (Incomplet) -->
-        <div class="animation_target_el">
-            <p class="highlight_special_text list_title_highlight mt_40">Telegram Web UI Clone (Incomplet)</p>
-            <BorderLeftLayout>
-                <p>
+        <div class="project_layout_wrapper mt_40">
+            <div class="project_demo_info animation_target_el">
+                <p class="highlight_special_text list_title_highlight mt_40">Telegram Web UI Clone (Incomplet)</p>
+                <p class="mt_10">
                     This is a front-end-only clone of the Telegram Web interface, built as a personal project to practice layout structuring, component styling, and UI design replication using modern web technologies. 
                     <br>
                     Currently optimized for desktop view only — mobile responsiveness is not yet implemented.
@@ -50,33 +56,72 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
                 <a href="https://web-telegram-clone.vercel.app/" target="_blank" class="project_demo_link mt_20">
                     Live Demo
                 </a>
-            </BorderLeftLayout>
+            </div>
+            <div class="project_img_demo_wr animation_target_el">
+                <div class="project_img_demo " style="background-image: url('/images/tme.png');"></div>
+                <a href="https://web-telegram-clone.vercel.app/" target="_blank" class="project_demo_link mt_20">
+                    Live Demo
+                </a>
+            </div>
         </div>
     </section>
 </template>
 
 <style scoped lang="scss">
 
-.project_demo_layout__lengdev {
-    .project_demo_title__lengdev {
-        color: rgb(253 224 71);
+.project_layout_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    &,
+    & * {
+        font-style: italic;
     }
-    .project_usage_technologies_list {
-        margin-left: 30px;
+    .project_img_demo_wr {
+        width: 100%;
+        flex: 1;
+        .project_img_demo {
+            width: 100%;
+            background-position: top center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            aspect-ratio: 2 / 1;
+            // border-radius: 8.0px;
+        }
+    }
+    .project_demo_info {
+        flex: 1;
+        .project_demo_link {
+            display: none;
+        }
     }
 }
 
+
 /* Tablet and up */
-// @media (min-width: 768px) {
-//     .project_demo_layout__lengdev {
-       
-//     }
-// }
+@media (min-width: 768px) {
+    // .project_layout_wrapper {
+    //     flex-direction: row;
+    // }
+}
 
 /* Desktop and up */
-// @media (min-width: 1024px) {
-//     .project_demo_layout__lengdev {
-//     }
-// }
+@media (min-width: 1024px) {
+    .project_layout_wrapper {
+        flex-direction: row;
+        .project_img_demo_wr {
+            .project_demo_link {
+                display: none;
+            }
+        }
+        .project_demo_info {
+            .project_demo_link {
+                display: inline-block;
+            }
+        }
+    }
+}
 
 </style>
