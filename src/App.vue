@@ -24,9 +24,9 @@ onMounted(()=>{
   document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .6)}px`);
   setTimeout(()=>{
     sendClientViewWebsite(location.href)
-  },5000)
+  },3000)
   window.addEventListener("beforeunload", () => {
-    sendClientViewWebsite(clientRouteTrackingList.join(" \n "))
+    sendClientViewWebsite(clientRouteTrackingList.join(" \n "),true)
   })
 })
 
