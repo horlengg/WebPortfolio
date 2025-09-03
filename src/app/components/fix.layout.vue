@@ -2,6 +2,7 @@
 import { useTheme } from '@/app/utils/usetheme';
 import { onMounted, ref } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { KHQR_LINK } from '../app.config';
 
 
 const btnRef = ref<HTMLElement>()
@@ -28,7 +29,7 @@ const handleClickButtonNavigator = ()=>{
 
 const handlePayCoffee = () => {
     window.open(
-        "https://pay.ababank.com/oyMxYojNGwDFTFxw5",
+        KHQR_LINK,
         "_blank",
         "noopener,noreferrer"
     );
