@@ -18,6 +18,7 @@ import LinkButton from "../components/link_btn.vue"
         </div>
 
         <div class="contact_list mt_70 animation_target_el" id="contact_me">
+            <LinkButton icon="/icons/cv_icon.svg" label="linkedIn" link="/docs/LyHoulengResume.pdf"/>
             <LinkButton icon="/icons/call_icon.svg" label="linkedIn" :link="PHONE_NUMBER"/>
             <LinkButton icon="/icons/linkin.svg" label="linkedIn" :link="LINKIN_LINK"/>
             <LinkButton icon="/icons/mail-ios.svg" label="email" :link="EMAIL"/>
