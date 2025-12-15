@@ -33,7 +33,7 @@ onMounted(fetchArticles);
                 <p class="title" > {{ blog.title }} </p>
                 <div class="blog_info">
                     <div class="pf_cv">
-                        <img src="/images/leng_circle.png" alt="" width="25">
+                        <img src="/images/leng_dev_circle.png" alt="" width="25">
                         <p>
                             Ly Horleng
                             <br>
