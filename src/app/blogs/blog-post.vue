@@ -34,7 +34,9 @@ onMounted(async () => {
 const setupImageLoading = () => {
   const images = document.querySelectorAll('.blog_content img');
   
-  images.forEach((img: HTMLImageElement) => {
+  images.forEach((img) => {
+    const imgElement = img as HTMLImageElement; // Type assertion here
+    
     // Create wrapper and skeleton
     const wrapper = document.createElement('div');
     wrapper.className = 'img-skeleton-wrapper';
@@ -43,21 +45,21 @@ const setupImageLoading = () => {
     skeleton.className = 'img-skeleton';
     
     // Wrap image
-    img.parentNode?.insertBefore(wrapper, img);
+    imgElement.parentNode?.insertBefore(wrapper, imgElement);
     wrapper.appendChild(skeleton);
-    wrapper.appendChild(img);
+    wrapper.appendChild(imgElement);
     
     // Add loading class initially
-    img.classList.add('img-loading');
+    imgElement.classList.add('img-loading');
     
     // Remove skeleton when loaded
-    img.addEventListener('load', () => {
+    imgElement.addEventListener('load', () => {
       skeleton.remove();
-      img.classList.remove('img-loading');
+      imgElement.classList.remove('img-loading');
     });
     
     // Handle errors
-    img.addEventListener('error', () => {
+    imgElement.addEventListener('error', () => {
       skeleton.className = 'img-skeleton-error';
       skeleton.textContent = '⚠ Failed to load image';
     });
