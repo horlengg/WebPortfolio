@@ -56,6 +56,7 @@ const setupImageLoading = () => {
     imgElement.addEventListener('load', () => {
       skeleton.remove();
       imgElement.classList.remove('img-loading');
+      wrapper.classList.remove('img-skeleton-wrapper')
     });
     
     // Handle errors
