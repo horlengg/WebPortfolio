@@ -17,7 +17,7 @@ I've been involved in mobile development with Flutter, and through my experience
 
 ## Contents
 1. [Avoid Unnecessary Widget Rebuilding](#avoid-unnecessary-widget-rebuilding)
-2. [Avoid Render Unnecessary Widget](#avoid-ender-unnecessary-widget)
+2. [Avoid Render Unnecessary Widget](#avoid-render-unnecessary-widget)
 3. [Avoid Condition Conflict](#avoid-condition-conflict)
 4. [Using if-else Statements Correctly](#using-if-else-statements-correctly)
 
