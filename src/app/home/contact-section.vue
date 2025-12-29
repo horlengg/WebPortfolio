@@ -24,6 +24,7 @@ import LinkButton from "../components/link_btn.vue"
             <LinkButton icon="/icons/mail-ios.svg" label="email" :link="EMAIL"/>
             <LinkButton icon="/icons/telegram.svg" label="telegram" :link="TELEGRAM_LINK"/>
             <LinkButton icon="/icons/fb.svg" label="facebook" :link="FACEBOOK_LINK"/>
+            <LinkButton icon="/icons/github.svg" label="facebook" :link="GITHUB_LINK"/>
         </div>
 
     </section>

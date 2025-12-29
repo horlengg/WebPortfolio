@@ -5,6 +5,38 @@
 <template>
     <section id="project" class="mt_70" >
         <p class="title_label_bold vt323 animation_target_el">Projects</p>
+
+        <!-- ABA Home Home Page Clone  -->
+        <div class="project_layout_wrapper">
+            <div class="project_demo_info animation_target_el">
+                <p class="highlight_special_text list_title_highlight mt_40">ABA Home Screen Clone </p>
+                <p class="mt_10">
+                    This project contains a UI clone of the Home screen ABA Bank mobile application include drag-drop menu, built for learning and practice purposes.
+                    The project focuses on recreating the visual design, layout, and navigation flow of the ABA app using iOS technologies.
+                </p>
+                <p style="margin: 10px 0 20px 10px; color: #be6c65;">
+                    This project is not affiliated with, endorsed by, or connected to ABA Bank.
+                    All trademarks, logos, and brand names belong to their respective owners.
+                </p>
+                <p class="mt_10">
+                    <b> Technologies Used </b> 
+                </p>
+                <ul style="margin-left: 20px;list-style-type: disc;">
+                    <li>Swift5</li>
+                    <li>SwiftUI</li>
+                </ul>
+                <a href="https://github.com/horlengg/clone_ui_aba" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+            <div class="project_img_demo_wr animation_target_el">
+                <div class="project_img_demo" style="background-image: url('/images/aba_home_screen_clone.png');aspect-ratio:2/1.25;"></div>
+                <a href="https://github.com/horlengg/clone_ui_aba" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+        </div>
+
         <!-- Movie Web Application  -->
         <div class="project_layout_wrapper">
             <div class="project_demo_info animation_target_el">
