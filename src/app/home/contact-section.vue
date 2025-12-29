@@ -1,5 +1,14 @@
 <script setup lang="ts">
-import { EMAIL, FACEBOOK_LINK, LINKIN_LINK, PHONE_NUMBER, TELEGRAM_LINK } from "../app.config";
+
+import { 
+    EMAIL, 
+    FACEBOOK_LINK, 
+    LINKIN_LINK, 
+    PHONE_NUMBER, 
+    TELEGRAM_LINK,
+    GITHUB_LINK 
+} from "../app.config";
+
 import LinkButton from "../components/link_btn.vue"
 
 </script>
