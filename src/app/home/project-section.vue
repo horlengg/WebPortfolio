@@ -11,31 +11,62 @@
             <div class="project_demo_info animation_target_el">
                 <p class="highlight_special_text list_title_highlight mt_40">ABA Home Screen Clone </p>
                 <p class="mt_10">
-                    This project contains a UI clone of the Home screen ABA Bank mobile application include drag-drop menu, built for learning and practice purposes.
-                    The project focuses on recreating the visual design, layout, and navigation flow of the ABA app using iOS technologies.
+                    This project contains a UI clone of the ABA Bank mobile application, 
+                    built for learning and practice purposes.
+                    The project focuses on recreating the visual design, layout, 
+                    and swape menu widget flow of the ABA app using cross platform technologies.
                 </p>
                 <p style="margin: 10px 0 20px 10px; color: #be6c65;">
                     This project is not affiliated with, endorsed by, or connected to ABA Bank.
                     All trademarks, logos, and brand names belong to their respective owners.
                 </p>
-                <p class="mt_10">
-                    <b> Technologies Used </b> 
-                </p>
-                <ul style="margin-left: 20px;list-style-type: disc;">
-                    <li>Swift5</li>
-                    <li>SwiftUI</li>
-                </ul>
-                <a href="https://github.com/horlengg/clone_ui_aba" target="_blank" class="project_demo_link mt_20">
+                
+                <a href="https://github.com/horlengg/clone_aba_bank_flutter" target="_blank" class="project_demo_link mt_20">
                     Repository
                 </a>
             </div>
             <div class="project_img_demo_wr animation_target_el">
-                <div class="project_img_demo" style="background-image: url('/images/aba_home_screen_clone.png');aspect-ratio:2/1.25;"></div>
-                <a href="https://github.com/horlengg/clone_ui_aba" target="_blank" class="project_demo_link mt_20">
+                <div class="project_img_demo" style="background-image: url('https://raw.githubusercontent.com/horlengg/clone_aba_bank_flutter/dev/aba_clone_ui_demo.png');"></div>
+                <a href="https://github.com/horlengg/clone_aba_bank_flutter" target="_blank" class="project_demo_link mt_20">
                     Repository
                 </a>
             </div>
         </div>
+
+        <br>
+        <br>
+        <br>
+
+        <!-- Liveness Detection  -->
+        <div class="project_layout_wrapper">
+            <div class="project_demo_info animation_target_el">
+                <p class="highlight_special_text list_title_highlight mt_40">Liveness Detection </p>
+                <p class="mt_10">
+                    This innovative Android application leverages advanced biometric security to ensure user authenticity through real-time liveness detection. 
+                    Designed for enhanced security and anti-spoofing, the app verifies that the user is physically present during authentication by analyzing facial movements and gestures.
+                </p>
+                <br>
+                <p>
+                    If you would like to test it, please download the APK from the following link : 
+                    <a href="https://tsfr.io/join/f9u5hy?id=11139589" target="_blank" class="project_demo_link">
+                        Download APK
+                    </a>
+                </p>
+                <a href="https://github.com/horlengg/liveness_detection" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+            <div class="project_img_demo_wr animation_target_el">
+                <div class="project_img_demo" style="background-image: url('/images/liveness_detection_demo.png');aspect-ratio:2/1.25;"></div>
+                <a href="https://github.com/horlengg/liveness_detection" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
 
         <!-- Movie Web Application  -->
         <div class="project_layout_wrapper">
@@ -65,6 +96,10 @@
                 </a>
             </div>
         </div>
+
+        <br>
+        <br>
+        <br>
 
         <!-- Telegram Web UI Clone (Incomplet) -->
         <div class="project_layout_wrapper mt_40">
@@ -116,7 +151,7 @@
         flex: 1;
         .project_img_demo {
             width: 100%;
-            background-position: top center;
+            background-position:  center;
             background-size: contain;
             background-repeat: no-repeat;
             aspect-ratio: 2 / 1;
