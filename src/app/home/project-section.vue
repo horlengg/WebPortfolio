@@ -20,7 +20,12 @@
                     This project is not affiliated with, endorsed by, or connected to ABA Bank.
                     All trademarks, logos, and brand names belong to their respective owners.
                 </p>
-                
+                <p>
+                    If you would like to test it, please download the APK from the following link : 
+                    <a href="https://tsfr.io/join/7fssxq" target="_blank" class="highlight_link">
+                        Download APK
+                    </a>
+                </p>
                 <a href="https://github.com/horlengg/clone_aba_bank_flutter" target="_blank" class="project_demo_link mt_20">
                     Repository
                 </a>
@@ -48,7 +53,7 @@
                 <br>
                 <p>
                     If you would like to test it, please download the APK from the following link : 
-                    <a href="https://tsfr.io/join/f9u5hy?id=11139589" target="_blank" class="project_demo_link">
+                    <a href="https://tsfr.io/join/f9u5hy?id=11139589" target="_blank" class="highlight_link">
                         Download APK
                     </a>
                 </p>
@@ -142,6 +147,11 @@
     align-items: center;
     justify-content: center;
     gap: 40px;
+
+    .highlight_link {
+        color: var(--highlight-color);
+    }
+
     &,
     & * {
         font-style: italic;
