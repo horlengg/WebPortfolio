@@ -42,6 +42,41 @@
         <br>
         <br>
 
+
+        <!-- Barcode Scanner  -->
+        <div class="project_layout_wrapper">
+            <div class="project_demo_info animation_target_el">
+                <p class="highlight_special_text list_title_highlight mt_40">Barcode Scanner </p>
+                <p class="mt_10">
+                    This project is a feature-rich barcode scanner with animation capture capabilities. 
+                    It can detect barcodes from images and live camera feed, automatically zooming in to enhance detection accuracy. 
+                    The scanner supports multiple barcode formats and offers a variety of functionalities such as real-time preview, 
+                    flash control, image upload for barcode scanning, tap-to-focus, vibration feedback on detection, 
+                    and optimized widget performance for a smooth user experience. Compatible with both Android and iOS devices, 
+                    it leverages Google ML Kit for reliable barcode recognition.
+                </p>
+                <p>
+                    If you would like to test it, please download the APK from the following link : 
+                    <a href="https://tsfr.io/join/24bzc9" target="_blank" class="highlight_link">
+                        Download APK
+                    </a>
+                </p>
+                <a href="https://github.com/horlengg/barcode_scanner_animation" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+            <div class="project_img_demo_wr animation_target_el">
+                <div class="project_img_demo" style="background-image: url('https://raw.githubusercontent.com/horlengg/barcode_scanner_animation/dev/barcode_scanner_demo.png');"></div>
+                <a href="https://github.com/horlengg/barcode_scanner_animation" target="_blank" class="project_demo_link mt_20">
+                    Repository
+                </a>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
         <!-- Liveness Detection  -->
         <div class="project_layout_wrapper">
             <div class="project_demo_info animation_target_el">
