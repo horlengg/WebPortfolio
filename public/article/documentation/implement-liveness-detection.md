@@ -19,7 +19,7 @@ In this blog, we explore how to implement Liveness Detection in a Flutter app us
 Liveness detection is a crucial technique in biometric authentication to ensure that the user is a real, live person—not a photo, video, or mask.
 
 If you would like to test it, please download the APK from the following link : 
-[Download APK](https://tsfr.io/join/f9u5hy?id=11139589)
+[Download APK](https://tsfr.io/join/f9u5hy)
 
 
 <br>

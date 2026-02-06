@@ -88,7 +88,7 @@
                 <br>
                 <p>
                     If you would like to test it, please download the APK from the following link : 
-                    <a href="https://tsfr.io/join/f9u5hy?id=11139589" target="_blank" class="highlight_link">
+                    <a href="https://tsfr.io/join/f9u5hy" target="_blank" class="highlight_link">
                         Download APK
                     </a>
                 </p>
