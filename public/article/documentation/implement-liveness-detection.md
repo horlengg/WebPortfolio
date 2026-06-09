@@ -11,7 +11,7 @@ This is where liveness detection comes in a technology designed to protect ident
 <br>
 <br>
 
-![Liveness Detection Image](/public/images/liveness_detection_demo.png)
+![Liveness Detection Image](/images/liveness_detection_demo.png)
 
 <br>
 

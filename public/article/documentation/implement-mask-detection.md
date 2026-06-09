@@ -10,7 +10,7 @@ Hello guys!
 <br>
 <br>
 
-![demo image](/public/images/mask_demo.jpg)
+![demo image](/images/mask_demo.jpg)
 
 
 <br>
