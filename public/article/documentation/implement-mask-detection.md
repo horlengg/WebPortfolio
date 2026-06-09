@@ -10,13 +10,13 @@ Hello guys!
 <br>
 <br>
 
-![Demo Gif](https://github.com/horlengg/mask_detector/raw/dev/mask-detection-demo.gif)
+![demo image](/public/images/mask_demo.jpg)
 
 
 <br>
 
 If you would like to test it, please download the APK from the following link : 
-[Download APK](https://tsfr.io/join/t6xts2?id=11139322)
+[Download APK](https://tsfr.io/join/f9u5hy?id=11347182)
 
 ---
 
@@ -27,7 +27,7 @@ If you would like to test it, please download the APK from the following link :
 
 - **Flutter**: Cross-platform UI framework for building the mobile application.
 - **TensorFlow Lite**: Lightweight machine learning model framework for excecute model on device.
-- **Mask Detection Model**: Existing ML Model public by https://github.com/Cindyalifia/tflite-face-mask-detection-android/
+- **Mask Detection Model**: Existing ML Model public by [https://github.com/chandrikadeb7/Face-Mask-Detection](https://github.com/chandrikadeb7/Face-Mask-Detection)
 - **Google MLKit Face Detection**: Official Google ML for detect face from rgb image
 - **Camera Plugin**: Flutter plugin (`camera`) for accessing device camera and capturing frames.
 
@@ -45,6 +45,26 @@ Here is my native code for integration with Mask Detection Model :
 ***MaskDetector.kt***
 ```kotlin
 
+package com.lengdev.maskdetector
+
+import android.content.Context
+import android.graphics.*
+import android.media.Image
+import android.os.Build
+import org.tensorflow.lite.Interpreter
+import org.tensorflow.lite.support.image.ImageProcessor
+import org.tensorflow.lite.support.image.TensorImage
+import org.tensorflow.lite.support.image.ops.ResizeOp
+import org.tensorflow.lite.support.image.ops.ResizeWithCropOrPadOp
+import org.tensorflow.lite.support.label.TensorLabel
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
+import org.tensorflow.lite.support.common.ops.NormalizeOp
+import org.tensorflow.lite.support.common.FileUtil
+import java.io.ByteArrayOutputStream
+import java.io.File
+import java.nio.ByteBuffer
+import kotlin.math.min
+import android.util.Log
 
 class MaskDetector(private val context: Context) {
 
@@ -62,7 +82,7 @@ class MaskDetector(private val context: Context) {
      */
     fun initialize() : Boolean {
         try {
-            val modelFile = FileUtil.loadMappedFile(context, "mask_detector.tflite")
+            val modelFile = FileUtil.loadMappedFile(context, "mask_detector_v3.tflite")
             model = Interpreter(modelFile, Interpreter.Options())
 
             // Get input shape to create image processor
@@ -111,6 +131,8 @@ class MaskDetector(private val context: Context) {
         rect: FaceContour
     ): MaskDetectionResult? {
         try {
+
+            val startAt = System.currentTimeMillis()
             // Check if model is initialized
             if (model == null) {
                 Log.e(TAG, "Model not initialized. Call initialize() first.")
@@ -152,6 +174,7 @@ class MaskDetector(private val context: Context) {
                 hasMask = hasMask,
                 withMaskScore = withMask,
                 withoutMaskScore = withoutMask,
+                durationInMilliseconds = (System.currentTimeMillis() - startAt).toFloat()
             )
             
         } catch (e: Exception) {
@@ -212,6 +235,137 @@ data class FaceContour (
     val height : Int
 )
 
+```
+
+<br>
+<br>
+
+***MaskClassifier.swift***
+
+```swift
+//
+//  MaskClassifier.swift
+//  MaskDetectionApp
+//
+//  Created by Houleng Ly on 18/5/26.
+//
+
+import Foundation
+import TensorFlowLite
+import UIKit
+import CoreImage
+
+class MaskClassifier {
+    private var interpreter: Interpreter?
+
+    let inputSize = 224
+
+    init() {
+        loadModel()
+    }
+
+    private func loadModel() {
+        do {
+            let bundle = Bundle(for: MaskDetectorPlugin.self)
+            let resourceBundle = bundle.url(forResource: "mask_detector", withExtension: "bundle")
+                .flatMap { Bundle(url: $0) } ?? bundle
+
+            guard let modelPath = resourceBundle.path(
+                forResource: "mask_detector_v3",
+                ofType: "tflite"
+            ) else { 
+                print("mask_detector_v2.tflite not found")
+                return
+            }
+            var options = Interpreter.Options()
+            options.threadCount = 2
+            let interp = try Interpreter(modelPath: modelPath, options: options)
+            try interp.allocateTensors()
+            let inputTensor = try interp.input(at: 0)
+            interpreter = interp
+        } catch let error as InterpreterError {
+            print("❌ Interpreter error: \(error.localizedDescription)")
+        } catch {
+            print("❌ Unexpected error loading model: \(error)")
+        }
+    }
+
+    func predict(image: UIImage) -> MaskResponse? {
+        guard let interpreter = interpreter else {
+            print("Interpreter not loaded")
+            return nil
+        }
+        guard let pixelBuffer = preprocessImage(image) else { return nil }
+
+        do {
+            
+
+            try interpreter.copy(pixelBuffer, toInputAt: 0)
+            try interpreter.invoke()
+
+            let outputTensor = try interpreter.output(at: 0)
+            let results: [Float] = outputTensor.data.withUnsafeBytes {
+                Array($0.bindMemory(to: Float.self))
+            }
+            print("results : \(results)")
+            return MaskResponse(
+                mask: results[0],
+                withoutMask: results[1],
+                durationInMilliseconds: 0.0
+            )
+        } catch {
+            print("Inference error: \(error)")
+            return nil
+        }
+    }
+
+    private func preprocessImage(_ image: UIImage) -> Data? {
+        guard let cgImage = image.cgImage else {
+            print("No cgImage")
+            return nil
+        }
+        
+        let width = inputSize
+        let height = inputSize
+        let bytesPerRow = width * 4
+
+        var rawBytes = [UInt8](repeating: 0, count: bytesPerRow * height)
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
+
+        guard let context = CGContext(
+            data: &rawBytes,
+            width: width,
+            height: height,
+            bitsPerComponent: 8,
+            bytesPerRow: bytesPerRow,
+            space: colorSpace,
+            bitmapInfo: CGImageAlphaInfo.noneSkipLast.rawValue
+        ) else {
+            print("CGContext failed")
+            return nil
+        }
+
+        context.draw(cgImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+
+        var floatData = [Float]()
+        floatData.reserveCapacity(width * height * 3)
+
+        for i in 0 ..< width * height {
+            let base = i * 4
+            floatData.append((Float(rawBytes[base])     - 127.5) / 127.5)  // R
+            floatData.append((Float(rawBytes[base + 1]) - 127.5) / 127.5)  // G
+            floatData.append((Float(rawBytes[base + 2]) - 127.5) / 127.5)  // B
+        }
+
+        return Data(bytes: floatData, count: floatData.count * MemoryLayout<Float>.size)
+    }
+}
+
+struct MaskResponse {
+    var mask: Float
+    var withoutMask: Float
+    var durationInMilliseconds: TimeInterval
+}
 
 ```
 
@@ -340,6 +494,137 @@ class MaskDetectorPlugin: FlutterPlugin, MethodCallHandler {
         channel.setMethodCallHandler(null)
     }
 }
+
+
+```
+<br>
+<br>
+
+
+***MaskDetectorPlugin.swift***
+
+```swift
+//
+//  MaskDetectorPlugin.swift
+//  Runner
+//
+//  Created by Houleng Ly on 23/5/26.
+//
+import Flutter
+import UIKit
+
+public class MaskDetectorPlugin: NSObject, FlutterPlugin {
+
+  private var classifier: MaskClassifier?
+
+  public static func register(with registrar: FlutterPluginRegistrar) {
+    let channel = FlutterMethodChannel(
+      name: "com.lengdev.maskdetector",
+      binaryMessenger: registrar.messenger()
+    )
+    let instance = MaskDetectorPlugin()
+    registrar.addMethodCallDelegate(instance, channel: channel)
+  }
+
+  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    switch call.method {
+    case "initialize":  handleInitialize(result: result)
+    case "detectMask":  handleDetectMask(call: call, result: result)
+    case "destroy":     handleDestroy(result: result)
+    default:            result(FlutterMethodNotImplemented)
+    }
+  }
+
+  private func handleInitialize(result: @escaping FlutterResult) {
+    DispatchQueue.global(qos: .userInitiated).async {
+      self.classifier = MaskClassifier()
+      let success = self.classifier != nil
+      DispatchQueue.main.async {
+        if success {
+          result([
+            "status" : true,
+            "message" : "Initialize mask detector success!."
+          ])
+        } else {
+          result(FlutterError(
+            code: "INIT_FAILED",
+            message: "Failed to load mask_detector.tflite",
+            details: nil
+          ))
+        }
+      }
+    }
+  }
+
+
+  private func handleDestroy(result: @escaping FlutterResult) {
+    classifier = nil
+    result([
+      "status" : true,
+      "message" : "Mask detector was destroyed!."
+    ])
+    
+  }
+    
+  private func handleDetectMask(call: FlutterMethodCall, result: @escaping FlutterResult) {
+    guard let classifier = classifier else {
+      result(FlutterError(code: "NOT_INITIALIZED", message: "Call initialize() first", details: nil))
+      return
+    }
+
+    guard
+      let args       = call.arguments as? [String: Any],
+      let yuvBytes   = args["yuvBytes"]   as? FlutterStandardTypedData,
+      let width      = args["imageWidth"] as? Int,
+      let height     = args["imageHeight"] as? Int,
+      let bytesPerRow = args["bytesPerRow"] as? Int,
+      let rectMap    = args["faceContour"] as? [String: Int],
+      let rectLeft   = rectMap["left"],
+      let rectTop    = rectMap["top"],
+      let rectRight  = rectMap["right"],
+      let rectBottom = rectMap["bottom"]
+    else {
+        result(FlutterError(code: "INVALID_ARGS", message: "Required: yuvBytes, width, height, rotation, rect{left,top,right,bottom}", details: nil))
+        return
+    }
+
+    let startAt = Date()
+
+
+    DispatchQueue.global(qos: .userInitiated).async {
+        guard let bitmap = ImageUtils.bgraToUIImage(yuvBytes.data, width: width, height: height, bytesPerRow: bytesPerRow) else {
+            DispatchQueue.main.async {
+              result(FlutterError(code: "PREPROCESS_FAILED", message: "Could not decode image", details: nil))
+            }
+            return
+        }
+        
+        
+        let rect = CGRect(x: rectLeft, y: rectTop, width: rectRight - rectLeft, height: rectBottom - rectTop)
+        let cropped = ImageUtils.cropBitmap(bitmap, rect: rect)
+
+      guard let response = classifier.predict(image: cropped!) else {
+        DispatchQueue.main.async {
+          result(FlutterError(code: "INFERENCE_FAILED", message: "Model inference returned nil", details: nil))
+        }
+        return
+      }
+
+      let hasMask = response.mask > response.withoutMask
+
+      DispatchQueue.main.async {
+          result([
+            "hasMask":          hasMask,
+            "withMaskScore":    response.mask,
+            "withoutMaskScore": response.withoutMask,
+            "durationInMilliseconds": Date().timeIntervalSince(startAt) * 1000
+          ])
+      }
+    }
+  }
+}
+
+
 
 
 ```
@@ -577,7 +862,7 @@ class _MaskDetectionViewState extends State<MaskDetectionView> {
 <br>
 
 ## Conclusion
-*In this blog, I aimed to share my exploration of Mask Detection, which can be helpful for KYC processes involving user face verification, such as Liveness Detection and Face Recognition. Unfortunately, I have not yet implemented this functionality on iOS. However, I plan to do so in the future when time permits, to support iOS devices.*
+*In this blog, I aimed to share my exploration of Mask Detection, which can be helpful for KYC processes involving user face verification, such as Liveness Detection and Face Recognition.
 
 <br>
 
