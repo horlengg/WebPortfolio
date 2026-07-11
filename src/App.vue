@@ -15,13 +15,13 @@ const clientRouteTrackingList:Array<string> = [];
 window.addEventListener('resize',()=>{
   const layoutSize = (appRef.value?.offsetWidth ?? 0) - ((window.innerWidth > 600 && window.innerWidth < 768) ? 100 : 40);
   document.documentElement.style.setProperty("--slide-img-width",`${layoutSize}px`);
-  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .6)}px`);
+  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .8)}px`);
 })
 
 onMounted(()=>{
   const layoutSize = (appRef.value?.offsetWidth ?? 0) - ((window.innerWidth > 600 && window.innerWidth < 768) ? 100 : 40);
   document.documentElement.style.setProperty("--slide-img-width",`${layoutSize}px`);
-  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .6)}px`);
+  document.documentElement.style.setProperty("--slide-img-height",`${(layoutSize * .8)}px`);
   setTimeout(()=>{
     sendClientViewWebsite(location.href)
   },3000)

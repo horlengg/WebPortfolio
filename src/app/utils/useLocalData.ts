@@ -1,6 +1,6 @@
 const quoteList = [
     {
-        "img" : '/images/leng_dev1.jpeg',
+        "img" : '/images/lengdev01.webp',
         "quote" : [
             "Thirty years the river flows east, thirty years the river flows west; don't bully the young and poor.",
             "<br><span class='inspiration'>“Life turns like a river. Today you may mock the weak — tomorrow, they may rise above you. Respect everyone, especially those still growing.”</span>",
@@ -9,7 +9,7 @@ const quoteList = [
         
     },
     {
-        "img" : '/images/leng_dev.jpeg',
+        "img" : '/images/lengdev03.webp',
         "quote" : [
             "It doesn't matter if you don't have talent; the only thing you need is to overcome laziness.",
             "<br><span class='inspiration'>“You don’t need talent to succeed — just the discipline to show up when it’s hard.“</span>",

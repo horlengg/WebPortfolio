@@ -238,7 +238,7 @@ function onTouchEnd(_: TouchEvent) {
         .__right {
             .img_bl {
                 width: 300px;
-                height: 200px;
+                height: 240px;
             }
         }
         @keyframes __paragraphAnimatedKeyFrame {

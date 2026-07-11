@@ -26,17 +26,10 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
         <div class="animation_target_el">
             <p class="list_title_highlight mt_40 skill_category_type"> Mobile Development </p>
             <BorderLeftLayout class="mt_10">
-                I am a proficient mobile developer with expertise in building high-quality, 
-                cross-platform and native applications using <span>Flutter</span> and <span>Swift</span>. 
-                With <span>Flutter</span>, I specialize in creating visually appealing, responsive, 
-                and performant cross-platform apps for both Android and iOS, 
-                leveraging its widget-based architecture and state management solutions. 
-                In addition, I have strong experience in <span>Swift</span>, enabling me to develop robust, 
-                native iOS applications with seamless user interfaces and smooth performance. 
-                I am skilled in integrating APIs, managing local and cloud-based data, 
-                and implementing modern design patterns to deliver scalable, maintainable, 
-                and user-friendly mobile solutions. My focus on clean code, best practices, 
-                and continual learning allows me to build apps that meet both user needs and business goals.
+                I am a <span>Senior iOS Developer</span> with extensive experience designing, developing, and maintaining high-quality mobile applications. My primary expertise is in <span>Swift</span> and the <span>Apple ecosystem</span>, where I build scalable, performant, and intuitive native iOS applications using modern architectures, best practices, and Apple's latest frameworks.
+                In addition to native iOS development, I have strong experience with <span>Flutter</span>, enabling me to deliver cross-platform applications for both iOS and Android when business requirements call for a shared codebase. This versatility allows me to evaluate and implement the most effective technology stack for each project.
+                Throughout my career, I have successfully integrated <span>RESTful APIs and third-party services</span>, implemented secure authentication, managed local and cloud-based data, optimized application performance, and delivered seamless user experiences. I am experienced with architectural patterns such as <span>MVVM and Clean Architecture</span>, writing maintainable, testable code, and collaborating closely with cross-functional teams in Agile environments.
+                As a senior engineer, I focus not only on delivering features but also on improving code quality, mentoring teammates, driving technical decisions, and promoting engineering best practices. I am passionate about building reliable, user-centric mobile applications that align with both business objectives and long-term product scalability while continuously learning and adopting new technologies within the Apple ecosystem.
             </BorderLeftLayout>
         </div>
 
