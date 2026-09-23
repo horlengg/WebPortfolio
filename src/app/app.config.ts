@@ -12,3 +12,6 @@ export const EMAIL = import.meta.env.VITE_EMAIL; // email
 
 // 
 export const KHQR_LINK = import.meta.env.VITE_KHQR_LINK; // KHQR LINK
+
+
+export const RESUME_LINK = import.meta.env.VITE_RESUME_LINK; // KHQR LINK

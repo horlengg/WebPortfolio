@@ -76,16 +76,21 @@ onMounted(fetchArticles);
         .blog_item {
             padding-bottom: 20px;
             overflow: hidden;
+            // background-color: var(--main-layout-color);
+            // border-radius: 12px;
+            // box-shadow: 0 2px 20px #f1f5f9;
             p.title {
-                padding: 20px 0;
+                padding: 20px 12px;
                 font-size: 20px;
                 font-weight: 600;
+
             }
             cursor: pointer;
             .blog_info {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                padding: 0 12px;
                 .write_dt {
                     font-size: 12px;
                     opacity: .8;

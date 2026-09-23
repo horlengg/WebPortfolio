@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-import { onMounted, ref, watch } from 'vue';
+import { computed, nextTick, onMounted, ref, watch } from 'vue';
 // import Home from './app/pages/home.vue';
 import FixLayoutBuilder from './app/components/fix.layout.vue';
 import { useRoute } from 'vue-router';
@@ -39,11 +39,28 @@ watch(
   },
   { immediate: true }
 );
+
+const isBlogSubPage = computed(() => /^\/blogs\/.+/.test(route.path))
+
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await nextTick()
+    appRef.value?.scrollTo({ top: 0, behavior: 'auto' })
+  }
+)
+
 </script>
 
 <template>
   
-  <div id="app_root" class="app_container app_layout_fixed zilla-slab-regular" ref="appRef">
+  <div 
+    id="app_root" 
+    class="app_container app_layout_fixed zilla-slab-regular" 
+    ref="appRef" 
+    :class="isBlogSubPage ? 'no-padding' : ''"
+  >
     <FixLayoutBuilder />
     <transition name="fade" mode="out-in">
       <div class="transition_item"  :key="$route.fullPath">

@@ -13,7 +13,8 @@ body {
     --link-color : #478be6;
     &:not(.dark){
         --primary-text-color : #48506D;
-        --layout-color : 255, 255, 255;
+        --layout-color : #f1f5f9;
+        --main-layout-color : #FFFFFF;
         --quote-inspiration-bg : rgb(244, 241, 241);
         --quote-inspiration-bg-bar : rgb(179, 178, 178);
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
@@ -21,38 +22,35 @@ body {
         --blog-date-release-color : #9875d1;
     }
     &.dark {
-        --layout-color : 36, 36, 36;// #413C46;
+        --layout-color : #12110e;// #413C46;
         --primary-text-color : #e2e4ec;
         --quote-inspiration-bg : #493d57;
         --quote-inspiration-bg-bar : #9875d1;
         --skelaton-loading-color : linear-gradient(90deg, #93919100,#93919100 ,#454343);
         // --btn-contact-color : rgb(61, 61, 61);
         --blog-date-release-color : rgb(253 224 71);
+        --main-layout-color : #18181b;
     }
     font-size: 16px;
     color: var(--primary-text-color);
-    background-color: rgba(var(--layout-color), 1);
-    transition: background-color .3s ease-out , color .3s ease-out;
+    background-color: var(--layout-color);
+    transition: background-color .3s ease-out , color .3s ease-out,padding .5s ease-out;
     .app_container {
         height: 100vh;
         overflow-y: scroll;
         overflow-x: hidden;
         scroll-behavior: smooth;
+        background-color: var(--main-layout-color);
+        transition: padding .3s ease-out;
         &::-webkit-scrollbar {
             display: none;
+        }
+        &.no-padding {
+            padding: 0;
         }
     }
 }
 
-pre.hljs {
-    overflow-x: auto;
-    padding: 20px;
-    // background: #d4d4d4;
-    transition: background-color .3s ease-out , color .3s ease-out;
-    code {
-        font-size: 14px;
-    }
-}
 .animation_target_el {
     transition: background-color .3s ease-out , color .3s ease-out,opacity .3s ease-out,transform .3s ease-out !important;
     &:not(.is_activated){

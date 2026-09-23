@@ -3,6 +3,7 @@ import { nextTick, onMounted, ref, watch } from 'vue';
 import { converMdToHTML } from '@/app/utils/useMarkdownConvertor';
 import { useRoute } from 'vue-router';
 import BlogService from './blog.service';
+import 'highlight.js/styles/github-dark.min.css';
 
 const content = ref<string>(''); // Holds the HTML content
 
@@ -31,35 +32,48 @@ onMounted(async () => {
     console.error('Error loading markdown file:', error);
   }
 });
+
 const setupImageLoading = () => {
-  const images = document.querySelectorAll('.blog_content img');
-  
+  const blogContainer = document.querySelector(".blog_content")
+  if(!blogContainer) return ;
+  const images = blogContainer.querySelectorAll('img');
+
   images.forEach((img) => {
-    const imgElement = img as HTMLImageElement; // Type assertion here
-    
+    const imgElement = img as HTMLImageElement;
+    const parent = imgElement.parentElement;
+    const isWrappedByPtag = parent?.tagName === 'P';
+
     // Create wrapper and skeleton
     const wrapper = document.createElement('div');
-    wrapper.className = 'img-skeleton-wrapper';
-    
+    wrapper.className = 'img-skeleton-wrapper ' + (img.alt.includes("humnail") ? "blog-thumbnail" : "");
     const skeleton = document.createElement('div');
     skeleton.className = 'img-skeleton';
-    
-    // Wrap image
-    imgElement.parentNode?.insertBefore(wrapper, imgElement);
+
     wrapper.appendChild(skeleton);
-    wrapper.appendChild(imgElement);
-    
-    // Add loading class initially
+    wrapper.appendChild(imgElement); // moves imgElement out of its current spot
+
+    if (isWrappedByPtag && parent) {
+      // Insert wrapper as a sibling right after the <p>, then clean up
+      parent.insertAdjacentElement('afterend', wrapper);
+
+      // Remove the <p> if it's now empty (no other content besides the image)
+      if (parent.childNodes.length === 0) {
+        parent.remove();
+      }
+    } else {
+      // Original behavior: wrap in place
+      imgElement.parentNode?.insertBefore(wrapper, imgElement);
+      wrapper.appendChild(imgElement);
+    }
+
     imgElement.classList.add('img-loading');
-    
-    // Remove skeleton when loaded
+
     imgElement.addEventListener('load', () => {
       skeleton.remove();
       imgElement.classList.remove('img-loading');
-      wrapper.classList.remove('img-skeleton-wrapper')
+      wrapper.classList.remove('img-skeleton-wrapper');
     });
-    
-    // Handle errors
+
     imgElement.addEventListener('error', () => {
       skeleton.className = 'img-skeleton-error';
       skeleton.textContent = '⚠ Failed to load image';
@@ -85,85 +99,3 @@ watch(content, async (newContent) => {
 <template>
   <div v-html="content" class="blog_content"></div> <!-- Render HTML safely -->
 </template>
-
-<style lang="scss">
-/* Optional: Add styling for markdown content */
-ul {
-  margin-left: 20px;
-}
-
-a {
-  color: var(--link-color);
-}
-ul,ol {
-  margin-left: 20px;
-}
-a {
-  color: var(--link-color);
-}
-.blog_content {
-  img {
-    object-fit: contain !important;
-    max-width: 100%;
-    max-height: 400px;
-  }
-}
-.blog_content {
-  .img-skeleton-wrapper {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    min-height: 300px;
-    background: #f0f0f0;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .img-skeleton {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      #f0f0f0 0%,
-      #e0e0e0 20%,
-      #f0f0f0 40%,
-      #f0f0f0 100%
-    );
-    background-size: 200% 100%;
-    animation: shimmer 1.5s infinite;
-  }
-  
-  .img-skeleton-error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fee;
-    color: #c33;
-    font-size: 14px;
-  }
-  
-  img {
-    &.img-loading {
-      opacity: 0;
-    }
-    
-    transition: opacity 0.3s ease;
-    object-fit: contain !important;
-    max-width: 100%;
-    max-height: 400px;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-</style>
