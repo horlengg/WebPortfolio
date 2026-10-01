@@ -52,12 +52,8 @@ onBeforeUnmount(()=>{
       <p class="title_label_bold vt323 mt_70"> Welcome to my portfolio!.</p>
       <p class="title_label_bold vt323"> Mobile & Web Developer </p>
       <p class="mt_10" style="font-style: italic;">
-        Crafting modern, responsive, and performant apps for mobile and web platforms.
-      </p>
-      <p class="mt_10" style="font-style: italic;">
-        I'm Ly Horleng, a passionate Mobile and Web Developer with a strong focus on creating fast, scalable, and user-friendly digital experiences. I specialize in building full-stack applications using technologies like Flutter, Vue , React and Node.js.
-        <br>
-        With a detail-oriented mindset and a love for clean code, I enjoy solving real-world problems through design-driven development and always strive to stay updated with the latest tech trends.
+        Hi, I’m Ly Horleng — a mobile and web developer who enjoys turning ideas into simple, practical, and user-friendly digital products. I care about building things that not only work well, but also feel intuitive and enjoyable to use.
+        I’m detail-oriented, enjoy solving real-world problems, and value clean, maintainable work. I’m always learning, exploring new ideas, and looking for better ways to build meaningful digital experiences.
       </p>
     </div>
   </section>
