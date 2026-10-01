@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // import { onMounted } from "vue";
-import { onBeforeUnmount, onMounted, ref } from "vue";
+import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import QuoteSlider from "../components/quote_slider.vue";
 import ServiceSection from "./service-section.vue";
 import { useRoute } from "vue-router";
@@ -10,6 +10,7 @@ import ExperienceSection from "./experience-section.vue";
 import EducationSection from "./education-section.vue";
 import ContactSection from "./contact-section.vue";
 import { useScrollAnimation } from "@/app/utils/useScrollAnimation";
+import router from "../route.config.ts";
 
 const route = useRoute();
 const slideKey = ref(Date.now.toString())
@@ -22,18 +23,23 @@ document.addEventListener("visibilitychange",()=>{
   }
 })
 
-onMounted(()=>{
-  
-  const targets = Array.from(document.querySelectorAll('.animation_target_el')).map(e => e as HTMLElement) ?? []
-  animation.init(targets);
-  
-  setTimeout(()=>{
-    if(route.hash == '#contact_me'){
-      const contactSectionElement = document.getElementById('contact_me');
-      contactSectionElement?.scrollIntoView({ behavior: "smooth" });
-    }
-  },1000)
+onMounted(async () => {
+  const targets = Array.from(
+    document.querySelectorAll<HTMLElement>('.animation_target_el')
+  )
+  animation.init(targets)
 
+  await router.isReady()   // make sure route.hash is populated
+  await nextTick()         // make sure the DOM is rendered
+
+  if (route.hash) {
+    // small delay if your animation/layout needs to settle first
+    setTimeout(() => {
+      document
+        .querySelector(route.hash)
+        ?.scrollIntoView({ behavior: 'smooth' })
+    }, 300)
+  }
 })
 
 onBeforeUnmount(()=>{
