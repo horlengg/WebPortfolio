@@ -34,7 +34,7 @@ const projects: Project[] = [
         image: 'https://raw.githubusercontent.com/horlengg/clone_aba_bank_flutter/dev/aba_clone_ui_demo.png',
         imageAlt: 'ABA Bank home screen clone demo',
         tech: ['Flutter'],
-        apkUrl: 'https://tsfr.io/join/7fssxq',
+        apkUrl: 'https://tsfr.io/join/7fssxq?id=11166281',
         repoUrl: 'https://github.com/horlengg/clone_aba_bank_flutter',
     },
     {
@@ -45,7 +45,7 @@ const projects: Project[] = [
         image: 'https://raw.githubusercontent.com/horlengg/barcode_scanner_animation/dev/barcode_scanner_demo.png',
         imageAlt: 'Barcode scanner app demo',
         tech: ['Flutter','Google ML Kit'],
-        apkUrl: 'https://tsfr.io/join/24bzc9',
+        apkUrl: 'https://tsfr.io/join/24bzc9?id=11180465',
         repoUrl: 'https://github.com/horlengg/barcode_scanner_animation',
     },
     {
