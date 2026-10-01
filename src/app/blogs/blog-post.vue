@@ -1,33 +1,26 @@
 <script setup lang="ts">
-import { nextTick, onMounted, ref, watch } from 'vue';
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { converMdToHTML } from '@/app/utils/useMarkdownConvertor';
 import { useRoute } from 'vue-router';
 import BlogService from './blog.service';
 import 'highlight.js/styles/github-dark.min.css';
 
-const content = ref<string>(''); // Holds the HTML content
-
+const content = ref<string>('');
 const route = useRoute();
 
-// onMounted(async () => {
-//   try {
-//     const title = route.params?.title as string;
-//     if(!title) return ;
-//     const data = await BlogService.getBlog(title) ?? '';
-//     content.value = converMdToHTML(data);
-//   } catch (error) {
-//     console.error('Error loading markdown file:', error);
-//   }
-// });
+// Keep track of blob URLs so we can free the memory later
+const objectUrls: string[] = [];
+
 onMounted(async () => {
   try {
     const title = route.params?.title as string;
-    if(!title) return;
-    const data = await BlogService.getBlog(title) ?? '';
+    if (!title) return;
+    const data = (await BlogService.getBlog(title)) ?? '';
     content.value = converMdToHTML(data);
-    
-    await nextTick(); // Wait for DOM
-    setupImageLoading(); // Add this
+
+    await nextTick();
+    setupImageLoading();
+    setupVideoLoading(); // <-- new
   } catch (error) {
     console.error('Error loading markdown file:', error);
   }
@@ -81,21 +74,61 @@ const setupImageLoading = () => {
   });
 };
 
+const setupVideoLoading = () => {
+  const container = document.querySelector('.blog_content');
+  if (!container) return;
+
+  container.querySelectorAll('video').forEach(async (video) => {
+    const sourceEl = video.querySelector('source');
+    const url = video.getAttribute('src') ?? sourceEl?.getAttribute('src');
+    if (!url) return;
+
+    const mime = sourceEl?.getAttribute('type') || 'video/mp4';
+
+    // Needed for iOS so it doesn't force fullscreen
+    video.setAttribute('playsinline', '');
+    video.classList.add('video-loading');
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      // Read into memory and re-wrap with the correct MIME type
+      const buffer = await res.arrayBuffer();
+      const blob = new Blob([buffer], { type: mime });
+      const objectUrl = URL.createObjectURL(blob);
+      objectUrls.push(objectUrl);
+
+      // Remove the original <source> so the browser doesn't use it
+      video.querySelectorAll('source').forEach((s) => s.remove());
+      video.removeAttribute('src');
+      video.src = objectUrl;
+      video.load();
+    } catch (err) {
+      console.error('Failed to load video:', url, err);
+    } finally {
+      video.classList.remove('video-loading');
+    }
+  });
+};
+
 watch(content, async (newContent) => {
   if (!newContent) return;
-  await nextTick(); // Wait DOM to update
+  await nextTick();
   const hash = window.location.hash;
   if (hash) {
-    const id = hash.substring(1); // remove '#'
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth'});
-    }
+    const el = document.getElementById(hash.substring(1));
+    el?.scrollIntoView({ behavior: 'smooth' });
   }
+});
+
+onBeforeUnmount(() => {
+  objectUrls.forEach((u) => URL.revokeObjectURL(u));
+  objectUrls.length = 0;
 });
 
 </script>
 
 <template>
-  <div v-html="content" class="blog_content"></div> <!-- Render HTML safely -->
+  <div v-html="content" class="blog_content"></div> 
 </template>
