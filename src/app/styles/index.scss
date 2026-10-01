@@ -20,6 +20,7 @@ body {
         --skelaton-loading-color : linear-gradient(90deg,#EDEDED 30%,#DCDCDC 50%,#EDEDED 70%);
         // --btn-contact-color : rgb(255, 255, 255);
         --blog-date-release-color : #9875d1;
+        --project-demo-title-color : #b45309
     }
     &.dark {
         --layout-color : #12110e;// #413C46;
@@ -30,6 +31,7 @@ body {
         // --btn-contact-color : rgb(61, 61, 61);
         --blog-date-release-color : rgb(253 224 71);
         --main-layout-color : #18181b;
+        --project-demo-title-color : rgb(253 224 71)
     }
     font-size: 16px;
     color: var(--primary-text-color);
@@ -185,7 +187,7 @@ body {
 }
 
 .highlight_special_text {
-    color: rgb(253 224 71);
+    color: var(--project-demo-title-color);
 }
 
 
