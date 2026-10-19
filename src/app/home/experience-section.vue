@@ -25,14 +25,14 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
         </div>
         <div class="mt_40 demo_img">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper" style="background-image: url('/images/apd_team.png');"></div>
+                <div class="img_wrapper" style="background-image: url('/images/apd_team.webp');"></div>
                 <p>
                 <!-- description -->
                 </p>
             </div>
             <hr class="border_only">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper" style="background-image: url('/images/apd-team-party.jpeg');"></div>
+                <div class="img_wrapper" style="background-image: url('/images/apd-team-party.webp');"></div>
                 <p>
                 <!-- description -->
                 </p>
@@ -55,14 +55,14 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
 
         <div class="mt_40 demo_img exp_blog_img_wrapper">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper" style="background-image: url('/images/mobile_team.jpeg');"></div>
+                <div class="img_wrapper" style="background-image: url('/images/mobile_team.webp');"></div>
                 <p>
                 <!-- description -->
                 </p>
             </div>
             <hr class="border_only">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper" style="background-image: url('/images/s4.jpg');"></div>
+                <div class="img_wrapper" style="background-image: url('/images/s4.webp');"></div>
                 <p>
                 <!-- description -->
                 </p>

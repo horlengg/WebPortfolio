@@ -25,7 +25,7 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
         <!-- Photo -->
         <div class="mt_50 demo_img">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper single_img_mode" style="background-image: url('/images/classmate_rupp.jpeg');"></div>
+                <div class="img_wrapper single_img_mode" style="background-image: url('/images/classmate_rupp.webp');"></div>
             </div>
             <hr class="border_only">
         </div>
@@ -48,7 +48,7 @@ import BorderLeftLayout from '../components/border-left-layout.vue';
         <!-- Photo -->
         <div class="mt_50 demo_img">
             <div class="demo_img_item animation_target_el">
-                <div class="img_wrapper single_img_mode" style="background-image: url('/images/application_team_06.png');"></div>
+                <div class="img_wrapper single_img_mode" style="background-image: url('/images/application_team_06.webp');"></div>
             </div>
             <hr class="border_only">
         </div>

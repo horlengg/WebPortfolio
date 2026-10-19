@@ -29,14 +29,14 @@ const quoteList = [
 const serviceList = [
     {
         title : "Mobile App Development",
-        thumnail : '/images/mobile_app.png',
+        thumnail : '/images/mobile_app.webp',
         description : `
             I specialize in building high-performance, cross-platform mobile applications using Flutter and native technologies like Swift (iOS). My apps are designed to be fast, responsive, and user-friendly, with clean architecture and maintainable codebases.
         `
     },
     {
         title : "Web Application Development",
-        thumnail : '/images/web_app.jpg',
+        thumnail : '/images/web_app.webp',
         description : `
             I build modern, scalable, and responsive web applications tailored to meet user needs and business goals. From dynamic frontends to robust backends, I deliver full-stack web solutions using Vue.js, React, and Node.js.
         `

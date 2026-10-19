@@ -53,7 +53,7 @@ const projects: Project[] = [
         description: [
             'This innovative Android application leverages advanced biometric security to ensure user authenticity through real-time liveness detection. Designed for enhanced security and anti-spoofing, the app verifies that the user is physically present during authentication by analyzing facial movements and gestures.',
         ],
-        image: '/images/liveness_detection_demo.png',
+        image: '/images/liveness_detection_demo.webp',
         imageAlt: 'Liveness detection app demo',
         tech: ['Flutter','Google ML Kit','Face Anti Spoofing Model'],
         apkUrl: 'https://tsfr.io/join/f9u5hy?id=11326582',
@@ -64,7 +64,7 @@ const projects: Project[] = [
         description: [
             'Piphubkun TV is a dedicated streaming platform for fans of Donghua, with a special focus on 3D Chinese animation. The website delivers an immersive experience by curating a wide range of series and movies, paired with rich content such as synopses, character profiles, and behind-the-scenes details.',
         ],
-        image: '/images/pktv.png',
+        image: '/images/pktv.webp',
         imageAlt: 'Piphubkun TV website screenshot',
         tech: ['Vue 3', 'TypeScript', 'Nest.js', 'MongoDB', 'Cloudinary'],
         demoUrl: 'https://piphubkun-tv.vercel.app/',
@@ -75,7 +75,7 @@ const projects: Project[] = [
             'A front-end-only clone of the Telegram Web interface, built to practice layout structuring, component styling, and UI replication.',
             'Currently optimized for desktop only. Mobile responsiveness and interactivity are planned for the next phase.',
         ],
-        image: '/images/tme.png',
+        image: '/images/tme.webp',
         imageAlt: 'Telegram Web clone screenshot',
         tech: ['Vue', 'TypeScript', 'SASS'],
         demoUrl: 'https://web-telegram-clone.vercel.app/',

@@ -42,13 +42,15 @@ body {
         overflow-y: scroll;
         overflow-x: hidden;
         scroll-behavior: smooth;
-        background-color: var(--main-layout-color);
         transition: padding .3s ease-out;
         &::-webkit-scrollbar {
             display: none;
         }
-        &.no-padding {
+        &.zero_padding {
             padding: 0;
+        }
+        &.show_background {
+            background-color: var(--main-layout-color);
         }
     }
 }
